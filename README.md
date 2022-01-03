@@ -1,3 +1,8 @@
+Main Color: #007bff
+
+Credits:
+T-Shirt Homepage Imaage - (Photo by Artem Podrez from Pexels)[https://www.pexels.com/photo/fashion-man-person-love-6787007/]
+
 |ID|User Type|I want to be able to...|So that I can...|
 |---|---|---|---|
 |<strong>A. Viewing & Navigation</strong>|

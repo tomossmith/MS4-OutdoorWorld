@@ -36,15 +36,15 @@ body{
     width: fit-content;
 }
 
-.shop-now-button {
+.hero-button {
     background: #007bff;
     color: white;
     min-width: 260px;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
+.hero-button:hover,
+.hero-button:active,
+.hero-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -95,5 +95,16 @@ body{
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+/* Increase padding when the navbar is collapsed on smaller screens */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }

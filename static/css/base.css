@@ -42,12 +42,16 @@ body{
     min-width: 260px;
 }
 
+.btn-theme-color {
+    background: white;
+}
+
 .hero-button:hover,
 .hero-button:active,
 .hero-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
+.btn-theme-color:hover,
+.btn-theme-color:active,
+.btn-theme-color:focus {
     background: #007bff;
     color: white;
 }
@@ -60,8 +64,8 @@ body{
     color: #fff !important;
 }
 
-.border-black {
-    border: 1px solid black !important;
+.border-theme-color {
+    border: 1px solid #007bff!important;
 }
 
 .overlay {
@@ -75,8 +79,8 @@ body{
 }
 
 a.category-badge > span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
+    background: #007bff !important;
+    color: red !important;
 }
 
 .btt-button {
@@ -90,19 +94,21 @@ a.category-badge > span.badge:hover {
     border-radius:50%;
 }
 
-.btt-link {
+.btt-link,
+.update-link,
+.remove-item {
     cursor: pointer;
 }
 
-.button-outline-black {
+.button-outline-theme-color {
     background: white;
-    color: black !important;
+    color: #007bff !important;
     border: 1px solid black;
 }
 
-btn-outline-black:hover,
-btn-outline-black:active,
-btn-outline-black:focus {
+btn-outline-theme-color:hover,
+btn-outline-theme-color:active,
+btn-outline-theme-color:focus {
     background: black;
     color: white !important;
 }

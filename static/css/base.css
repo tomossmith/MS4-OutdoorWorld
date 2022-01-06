@@ -82,6 +82,12 @@ a.category-badge > span.badge:hover {
     background: #007bff !important;
     color: red !important;
 }
+ 
+.btt-link,
+.update-link,
+.remove-item, {
+    cursor: pointer;
+}
 
 .btt-button {
     height: 42px;
@@ -92,12 +98,6 @@ a.category-badge > span.badge:hover {
     color: #007bff;
     border: 2px solid #007bff;
     border-radius:50%;
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
 }
 
 .button-outline-theme-color {

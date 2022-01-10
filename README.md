@@ -21,3 +21,6 @@ No Image Icon -
 |B5|Site User| Login using social accounts| Quick and convenient way to login|
 |<strong>C. Sorting & Searching</strong>|
 |<strong>D. Purchasing & Checkout</strong>|
+
+
+Issues when developing:

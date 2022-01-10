@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 
-form .forms import OrderForm
+from .forms import OrderForm
 
 
 def checkout(request):

@@ -12,6 +12,14 @@ body{
     font-family: 'Poppins';
 }
 
+.text-black {
+    color: #000 !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
 /* from Bulma - Maintains FontAwesome icon sizes and centering */
 .icon {
     align-items: center;
@@ -21,20 +29,43 @@ body{
     width: 1.5rem;
 }
 
-.logo-font {
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
 .page-heading-font {
     text-transform: uppercase;
     color: #007bff !important;
     font-weight: 600 !important;
 }
 
+.border-theme-color {
+    border: 1px solid #007bff!important;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+a.category-badge > span.badge:hover {
+    background: #007bff !important;
+    color: red !important;
+}
+
+/* -------------------------------- Logo */
+
+.logo-font {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
 .main-logo-link {
     width: fit-content;
 }
+
+/* -------------------------------- Buttons */
 
 .hero-button {
     background: #007bff;
@@ -56,33 +87,6 @@ body{
     color: white;
 }
 
-.text-black {
-    color: #000 !important;
-}
-
-.text-white {
-    color: #fff !important;
-}
-
-.border-theme-color {
-    border: 1px solid #007bff!important;
-}
-
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
-}
-
-a.category-badge > span.badge:hover {
-    background: #007bff !important;
-    color: red !important;
-}
- 
 .btt-link,
 .remove-item,
 .update-link {
@@ -111,6 +115,23 @@ btn-outline-theme-color:active,
 btn-outline-theme-color:focus {
     background: black;
     color: white !important;
+}
+
+/* -------------------------------- Messages */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
 }
 
 /* -------------------------------- Media Queries */

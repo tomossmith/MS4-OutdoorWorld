@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 html {
     height:100%;
 }
 
-body{
-    background: url('/media/homepage-hero.jpg') no-repeat center center fixed;
+body {
+    background: url('/media/base-images/homepage-hero.png') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
 }
 
 .text-black {
@@ -18,6 +20,22 @@ body{
 
 .text-white {
     color: #fff !important;
+}
+
+.text-green {
+    color: #A8D977 !important;
+}
+
+.bg-lightblue {
+    background-color: #5274d9;
+}
+
+.bg-blue {
+    background-color: #375CA6;
+}
+
+#topnav {
+    background-color: #375CA6;
 }
 
 /* from Bulma - Maintains FontAwesome icon sizes and centering */
@@ -57,6 +75,7 @@ a.category-badge > span.badge:hover {
 /* -------------------------------- Logo */
 
 .logo-font {
+    font-family: 'Bebas Neue', cursive;
     text-transform: uppercase;
     font-weight: 600;
 }

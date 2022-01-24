@@ -112,8 +112,15 @@ a.category-badge > span.badge:hover {
     min-width: 260px;
 }
 
+#hero-tag {
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Bebas Neue', cursive !important;
+    color: #fff;
+}
+
 .btn-theme-color {
     background: #5274d9;
+    color: #fff;
 }
 
 .hero-button:hover,

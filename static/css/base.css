@@ -26,12 +26,12 @@ body {
     color: #A8D977 !important;
 }
 
-.bg-lightblue {
-    background-color: #5274d9;
+.text-blue {
+    color: #375CA6;
 }
 
-.bg-blue {
-    background-color: #375CA6;
+.bg-lightblue {
+    background-color: #5274d9
 }
 
 #topnav {
@@ -47,14 +47,34 @@ body {
     width: 1.5rem;
 }
 
+.qty-icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #5274d9;
+    border: #A8D977 2px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.qty-icon:hover,
+.qty-icon:active,
+.qty-icon:focus {
+    background: #A8D977;
+}
+
+
 .page-heading-font {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
     text-transform: uppercase;
-    color: #007bff !important;
-    font-weight: 600 !important;
+    color: #375CA6 !important;
 }
 
 .border-theme-color {
-    border: 1px solid #007bff!important;
+    border: 1px solid #375CA6!important;
 }
 
 .overlay {
@@ -68,7 +88,7 @@ body {
 }
 
 a.category-badge > span.badge:hover {
-    background: #007bff !important;
+    background: #375CA6 !important;
     color: red !important;
 }
 
@@ -87,13 +107,13 @@ a.category-badge > span.badge:hover {
 /* -------------------------------- Buttons */
 
 .hero-button {
-    background: #007bff;
+    background: #5274d9;
     color: white;
     min-width: 260px;
 }
 
 .btn-theme-color {
-    background: white;
+    background: #5274d9;
 }
 
 .hero-button:hover,
@@ -102,7 +122,7 @@ a.category-badge > span.badge:hover {
 .btn-theme-color:hover,
 .btn-theme-color:active,
 .btn-theme-color:focus {
-    background: #007bff;
+    background: #A8D977;
     color: white;
 }
 
@@ -118,14 +138,14 @@ a.category-badge > span.badge:hover {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    color: #007bff;
-    border: 2px solid #007bff;
+    color: #375CA6;
+    border: 2px solid #375CA6;
     border-radius:50%;
 }
 
 .button-outline-theme-color {
     background: white;
-    color: #007bff !important;
+    color: #375CA6 !important;
     border: 1px solid black;
 }
 
@@ -167,7 +187,7 @@ btn-outline-theme-color:focus {
 
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
-    border-bottom-color: #007bff !important;
+    border-bottom-color: #375CA6 !important;
 }
 
 .arrow-secondary {

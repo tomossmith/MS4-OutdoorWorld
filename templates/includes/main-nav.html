@@ -13,26 +13,62 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Clothing
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="mens-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Mens
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'products' %}?category=jumpers" class="dropdown-item">Jumpers</a>
-                <a href="{% url 'products' %}?category=tshirts" class="dropdown-item">T-Shirts</a>
-                <a href="{% url 'products' %}?category=hats" class="dropdown-item">Hats</a>
-                <a href="{% url 'products' %}?category=jumpers,tshirts,hats" class="dropdown-item">All Clothing</a>
+            <div class="dropdown-menu border-0" aria-labelledby="mens-link">
+                <a href="{% url 'products' %}?category=mens-jackets" class="dropdown-item">Jackets</a>
+                <a href="{% url 'products' %}?category=mens-jumpers" class="dropdown-item">Jumpers</a>
+                <a href="{% url 'products' %}?category=mens-tshirts" class="dropdown-item">T-Shirts</a>
+                <a href="{% url 'products' %}?category=mens-trousers" class="dropdown-item">Trousers</a>
+                <a href="{% url 'products' %}?category=mens-baselayers" class="dropdown-item">Baselayers</a>
+                <a href="{% url 'products' %}?category=mens-footwear" class="dropdown-item">Footwear</a>
+                <a href="{% url 'products' %}?category=mens-jackets,mens-jumpers,mens-tshirts,mens-trousers,mens-baselayers,mens-footwear" class="dropdown-item">All Mens</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="drinkware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Drinkware
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="womens-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Womens
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="drinkware-link">
-                <a href="{% url 'products' %}?category=mugs" class="dropdown-item">Mugs</a>
-                <a href="{% url 'products' %}?category=glasses" class="dropdown-item">Glasses</a>
-                <a href="{% url 'products' %}?category=sports_bottles" class="dropdown-item">Sports Bottles</a>
-                <a href="{% url 'products' %}?category=mugs,glasses,sports_bottles" class="dropdown-item">All Drinkware</a>
+            <div class="dropdown-menu border-0" aria-labelledby="womens-link">
+                <a href="{% url 'products' %}?category=womens-jackets" class="dropdown-item">Jackets</a>
+                <a href="{% url 'products' %}?category=womens-jumpers" class="dropdown-item">Jumpers</a>
+                <a href="{% url 'products' %}?category=womens-tshirts" class="dropdown-item">T-Shirts</a>
+                <a href="{% url 'products' %}?category=womens-trousers" class="dropdown-item">Trousers</a>
+                <a href="{% url 'products' %}?category=womens-baselayers" class="dropdown-item">Baselayers</a>
+                <a href="{% url 'products' %}?category=womens-footwear" class="dropdown-item">Footwear</a>
+                <a href="{% url 'products' %}?category=womens-jackets,womens-jumpers,womens-tshirts,womens-trousers,womens-baselayers,womens-footwear" class="dropdown-item">All Womens</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="kids-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Kids
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="kids-link">
+                <a href="{% url 'products' %}?category=kids-jackets" class="dropdown-item">Jackets</a>
+                <a href="{% url 'products' %}?category=kids-jumpers" class="dropdown-item">Jumpers</a>
+                <a href="{% url 'products' %}?category=kids-tshirts" class="dropdown-item">T-Shirts</a>
+                <a href="{% url 'products' %}?category=kids-trousers" class="dropdown-item">Trousers</a>
+                <a href="{% url 'products' %}?category=kids-baselayers" class="dropdown-item">Baselayers</a>
+                <a href="{% url 'products' %}?category=kids-footwear" class="dropdown-item">Footwear</a>
+                <a href="{% url 'products' %}?category=kids-jackets,kids-jumpers,kids-tshirts,kids-trousers,kids-baselayers,kids-footwear" class="dropdown-item">All Kids</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="equipment-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Equipment
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="equipment-link">
+                <a href="{% url 'products' %}?category=tents" class="dropdown-item">Tents</a>
+                <a href="{% url 'products' %}?category=rucksacks" class="dropdown-item">Rucksacks</a>
+                <a href="{% url 'products' %}?category=torches" class="dropdown-item">Torches</a>
+                <a href="{% url 'products' %}?category=sleeping-bags" class="dropdown-item">Sleeping Bags</a>
+                <a href="{% url 'products' %}?category=cooking-equipment" class="dropdown-item">Cooking Equipment</a>
+                <a href="{% url 'products' %}?category=pets" class="dropdown-item">Pets</a>
+                <a href="{% url 'products' %}?category=tents,rucksacks,torches,sleeping-bags,cooking-equipment,pets" class="dropdown-item">All Equipment</a>
             </div>
         </li>
 

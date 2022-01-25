@@ -2,7 +2,7 @@
     <li class="list-inline-item">
       <a class="text-white nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="text-center">
-              <div><i class="fas fa-search fa-lg"></i></div>
+              <div><i class="fas fa-search fa-lg text-green"></i></div>
               <p class="my-0">Search</p>
           </div>
       </a>
@@ -24,8 +24,13 @@
   <li class="list-inline-item dropdown">
       <a class="text-white nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="text-center">
-              <div><i class="fas fa-user fa-lg"></i></div>
-              <p class="my-0">My Account</p>
+              <div><i class="fas fa-user fa-lg text-green"></i></div>
+              <p class="my-0">
+                {% if request.user.is_authenticated %}
+                {{ profile }}'s Account</p>
+              {% else %}
+                My Account</p>
+              {% endif %}
           </div>
       </a>
       <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -44,12 +49,12 @@
   <li class="list-inline-item">
       <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-white{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
           <div class="text-center">
-              <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+              <div><i class="fas fa-shopping-bag fa-lg text-green"></i></div>
               <p class="my-0">
                   {% if grand_total %}
-                      ${{ grand_total|floatformat:2 }}
+                      £{{ grand_total|floatformat:2 }}
                   {% else %}
-                      $0.00
+                      £0.00
                   {% endif %}
               </p>
           </div>

@@ -1,1 +1,1 @@
-web: gunicorn outdoorworld.wsgi:application
+web: gunicorn ms4.wsgi:application

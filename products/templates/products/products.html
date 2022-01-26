@@ -77,6 +77,13 @@
                                             </a>
                                         </p>
                                         {% endif %}
+                                        {% if request.user.is_superuser %}
+                                            <small>
+                                                <a href="{% url 'edit_product' product.id %}"><i class="far fa-edit"></i>Edit  </a>
+                                                <spam>|</span>
+                                                <a class="text-danger" href="{% url 'delete_product' product.id %}"><i class="far fa-trash-alt"></i> Delete</a>
+                                            </small>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

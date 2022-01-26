@@ -14,6 +14,10 @@ body {
     font-family: 'Montserrat';
 }
 
+.bebas {
+    font-family: 'Bebas Neue', cursive !important;
+}
+
 .text-black {
     color: #000 !important;
 }
@@ -27,7 +31,11 @@ body {
 }
 
 .text-blue {
-    color: #375CA6;
+    color: #375CA6 !important;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .bg-lightblue {
@@ -64,7 +72,6 @@ body {
 .qty-icon:focus {
     background: #A8D977;
 }
-
 
 .page-heading-font {
     font-family: 'Bebas Neue', cursive;
@@ -110,12 +117,7 @@ a.category-badge > span.badge:hover {
     background: #5274d9;
     color: white;
     min-width: 260px;
-}
-
-#hero-tag {
-    text-shadow: 2px 2px 4px #000000;
-    font-family: 'Bebas Neue', cursive !important;
-    color: #fff;
+    box-shadow: 2px 2px 4px #000000;
 }
 
 .btn-theme-color {

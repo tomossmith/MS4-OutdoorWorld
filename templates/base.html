@@ -41,7 +41,7 @@
       <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
-            <h2 class="logo-font text-white my-0"><strong>Outdoor <i class="fas fa-hiking fa-lg text-green"></i> World</strong></h2>
+            <h2 class="logo-font text-shadow text-white my-0"><strong>Outdoor <i class="fas fa-hiking fa-lg text-green"></i> World</strong></h2>
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -64,21 +64,16 @@
               <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="text-center">
                   <div><i class="fas fa-user fa-lg text-green"></i></div>
-                  <p class="my-0 text-white">
-                    {% if request.user.is_authenticated %}
-                      {{ profile }}'s Account</p>
-                    {% else %}
-                      My Account</p>
-                    {% endif %}
+                  <p class="my-0 text-white">My Account</p>
                 </div>
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
-                    <a href="#" class="dropdown-item">Manage Products</a>
+                    <a href="{% url 'add_product' %}" class="dropdown-item">Manage Products</a>
                   {% endif %}
-                  <a href="{% url 'profile' %}" class="dropdown-item">My Account</a>
-                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    <a href="{% url 'profile' %}" class="dropdown-item">My Account</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
                   <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                   <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>

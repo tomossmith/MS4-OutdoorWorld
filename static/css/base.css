@@ -133,6 +133,18 @@ a.category-badge > span.badge:hover {
     color: white;
 }
 
+.btn-red {
+    background: rgb(228, 55, 55);
+    color: white;
+}
+
+.btn-red:hover,
+.btn-red:active,
+.btn-red:focus {
+    background: rgb(177, 13, 13);
+    color: white;
+}
+
 .btt-link,
 .remove-item,
 .update-link {

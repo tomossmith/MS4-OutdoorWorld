@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+# SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
@@ -119,9 +119,14 @@ WSGI_APPLICATION = 'ms4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': dj_database_url.parse('postgres://hcehiioocekjpf:0122414012e9a4eb9144d80a014ed4a47d4197bccebaa2950505f93bfea4f330@ec2-52-208-185-143.eu-west-1.compute.amazonaws.com:5432/desqg9s39r579')
+#}
+
+
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_Database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {

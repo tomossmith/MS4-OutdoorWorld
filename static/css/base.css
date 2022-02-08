@@ -338,6 +338,17 @@ input[name='q']::placeholder {
 }
 
 
+/* --------------------------------- Card CSS */
+
+.category-card-img {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

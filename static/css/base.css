@@ -42,6 +42,10 @@ body {
     background-color: #5274d9
 }
 
+.bg-black-opacity {
+    background-color: #0000007a;
+}
+
 #topnav {
     background-color: #375CA6;
 }

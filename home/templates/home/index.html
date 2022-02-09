@@ -2,66 +2,98 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 text-white text-shadow bebas">
-                    Get ready for your next <strong>ADVENTURE!</strong>
-                </h1>
-                <!--<div class="my-3">
-                    <h4>
-                        <a href="{% url 'products' %}" class="hero-button text-shadow btn btn-lg rounded-4 text-uppercase py-3">View Products</a>
-                    </h4>
-                </div>-->
-            </div>
-        </div>
-
-        <!-- START CARD -->
-        <div class="row">
-          <div class="col-3">
-            <div class="card-group">
-              <div class="card bg-black-opacity">
-                <div class="card-body text-center">
-                  <img src="/media/base-images/waterproof-jacket-card.png" alt="man standing in the rain" class="category-card-img">
-                  <h4 class="text-white text-shadow bebas my-1">
-                    Waterproof Jackets
-                  </h4>
-                  <p class="card-text text-white">Stay protected from the elements!</p>
-                  <div class="card-footer">
-                    <button class="btn btn-theme-color rounded-0" type="submit">View Products</button>
-                  </div> 
-                </div>
-              </div>
-            </div>  
-          </div>
-          <div class="col-3">
-            <div class="card-group">
-              <div class="card bg-black-opacity">
-                <div class="card-body text-center">
-                  <img src="/media/base-images/rucksack-card.png" alt="holding rucksack up to a view" class="category-card-img">
-                  <h4 class="text-white text-shadow bebas my-1">
-                    Rucksacks
-                  </h4>
-                  <p class="card-text text-white">Take everything you need for your journey!</p>
-                  <div class="card-footer">
-                    <button class="btn btn-theme-color rounded-0" type="submit">View Products</button>
-                  </div> 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- END CARD-->
+<div class="container h-100">
+  <div class="row h-100">
+    <div class="col-7 col-md-6 my-auto">
+      <h1 class="display-4 text-white text-shadow bebas">
+          Get ready for your next <strong>ADVENTURE!</strong>
+      </h1>
+      <!--<div class="my-3">
+          <h4>
+              <a href="{% url 'products' %}" class="hero-button text-shadow btn btn-lg rounded-4 text-uppercase py-3">View Products</a>
+          </h4>
+      </div>-->
+    </div>
   </div>
+</div>
 
-
-    
+<div class="container h-100">
+  
+  <!-- START CARD -->
+  <div class="row">
+    <div class="col-3">
+        <div class="card-group">
+          <div class="card bg-black-opacity">
+            <div class="card-body text-center">
+              <img src="/media/base-images/waterproof-jacket-card.png" alt="man standing in the rain" class="category-card-img">
+              <h4 class="text-white text-shadow bebas my-1">
+                Waterproof Jackets
+              </h4>
+              <p class="card-text text-white">Stay protected from the elements!</p>
+              <div class="card-footer">
+                <button class="btn btn-theme-color rounded-0" type="submit">View Products</button>
+              </div> 
+            </div>
+          </div>
+        </div>  
+    </div>
+    <div class="col-3">
+        <div class="card-group">
+          <div class="card bg-black-opacity">
+            <div class="card-body text-center">
+              <img src="/media/base-images/rucksack-card.png" alt="holding rucksack up to a view" class="category-card-img">
+              <h4 class="text-white text-shadow bebas my-1">
+                Rucksacks
+              </h4>
+              <p class="card-text text-white">Take everything you need for your journey!</p>
+              <div class="card-footer">
+                <button class="btn btn-theme-color rounded-0" type="submit">View Products</button>
+              </div> 
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-3">
+      <div class="card-group">
+          <div class="card bg-black-opacity">
+            <div class="card-body text-center">
+              <img src="/media/base-images/waterproof-jacket-card.png" alt="man standing in the rain" class="category-card-img">
+              <h4 class="text-white text-shadow bebas my-1">
+                Waterproof Jackets
+              </h4>
+              <p class="card-text text-white">Stay protected from the elements!</p>
+              <div class="card-footer">
+                <button class="btn btn-theme-color rounded-0" type="submit">View Products</button>
+              </div> 
+            </div>
+          </div>
+    </div>  
+    </div>
+    <div class="col-3">
+        <div class="card-group">
+          <div class="card bg-black-opacity">
+            <div class="card-body text-center">
+              <img src="/media/base-images/rucksack-card.png" alt="holding rucksack up to a view" class="category-card-img">
+              <h4 class="text-white text-shadow bebas my-1">
+                Rucksacks
+              </h4>
+              <p class="card-text text-white">Take everything you need for your journey!</p>
+              <div class="card-footer">
+                <button class="btn btn-theme-color rounded-0" type="submit">View Products</button>
+              </div> 
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- END CARD-->
+</div>
 {% endblock %}

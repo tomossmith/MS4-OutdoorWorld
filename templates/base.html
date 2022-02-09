@@ -141,6 +141,25 @@
     {% block content %}
     {% endblock %}
 
+    <div class="row bg-lightblue  border-top">
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-white text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <p class="text-white"> Copyright &copy; 2021-<script>document.write(new Date().getFullYear())</script> Outdoor World</p>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-white" href="#"><i class="fab fa-facebook fa-2x fa-fw"></i></a></li>
+            <li class="ms-3"><a class="text-white" href="#"><i class="fab fa-twitter fa-2x fa-fw"></i></a></li>
+            <li class="ms-3"><a class="text-white" href="#"><i class="fab fa-instagram fa-2x fa-fw"></i></a></li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+
     {% block postloadjs %}
     <script type="text/javascript">
       $('.toast').toast('show');
@@ -149,4 +168,4 @@
 
     
   </body>
-</html>
+  </html>

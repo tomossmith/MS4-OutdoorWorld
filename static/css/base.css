@@ -39,7 +39,11 @@ body {
 }
 
 .bg-lightblue {
-    background-color: #5274d9
+    background-color: #5274d9;
+}
+
+.bg-green {
+    background-color: #A8D977;
 }
 
 .bg-black-opacity {
@@ -48,6 +52,10 @@ body {
 
 #topnav {
     background-color: #375CA6;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
 }
 
 /* from Bulma - Maintains FontAwesome icon sizes and centering */
@@ -163,8 +171,8 @@ a.category-badge > span.badge:hover {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    color: #375CA6;
-    border: 2px solid #375CA6;
+    color: #A8D977;
+    border: 2px solid #A8D977;
     border-radius:50%;
 }
 

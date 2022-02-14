@@ -20,21 +20,21 @@
 
     <div class="row">
         <div class="col-md-6 col-sm-12 mx-auto">
-                <form method="post">
-                    {% csrf_token %}
-                    <fieldset class="rounded px-3 mb-5">
-                        {{form.first_name | as_crispy_field}}
-                        {{form.last_name | as_crispy_field}}
-                        {{form.email_address | as_crispy_field}}
-                        {{form.message | as_crispy_field}}
-                    </fieldset>
-                        <button type="submit" class="btn btn-theme-color rounded-0 btn-lg">
-                            <span class="text-uppercase">Submit</span>
-                            <span class="icon">
-                                <i class="fa-paper-plane"></i>
-                            </span>
-                        </button>
-                </form>
+            <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+                <fieldset class="rounded px-3 mb-5">
+                    {{form.first_name | as_crispy_field}}
+                    {{form.last_name | as_crispy_field}}
+                    {{form.email_address | as_crispy_field}}
+                    {{form.message | as_crispy_field}}
+                </fieldset>
+                <button type="submit" class="btn btn-theme-color rounded-0 btn-lg">
+                    <span class="text-uppercase">Submit</span>
+                    <span class="icon">
+                        <i class="fa-paper-plane"></i>
+                    </span>
+                </button>
+            </form>
         </div>
     </div>
 </div>

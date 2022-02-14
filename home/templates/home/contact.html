@@ -20,8 +20,6 @@
 
     <div class="row">
         <div class="col-md-6 col-sm-12 mx-auto">
-            <form action="{% url 'contact' %}" method="POST">
-                {% csrf_token %}
                 <form method="post">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -36,7 +34,7 @@
                                 <i class="fa-paper-plane"></i>
                             </span>
                         </button>
-                    </form>
+                </form>
         </div>
     </div>
 </div>

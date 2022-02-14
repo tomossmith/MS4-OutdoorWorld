@@ -10,7 +10,39 @@
 {% endblock %}
 
 {% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="page-heading-font">Contact Us</h2>
+        </div>
+    </div>
 
-<h1> THIS IS THE CONTACT PAGE </h1>
+    <div class="row">
+        <div class="col-md-6 col-sm-12 mx-auto">
+            <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="contact_name">Name</label>
+                    <input type="text" class="form-control" id="contact_name" placeholder="Name">
+                  </div>
+                <div class="form-group">
+                  <label for="contact_email">Email address</label>
+                  <input type="email" class="form-control" id="contact_email" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="contact_message">Message</label>
+                  <textarea class="form-control" id="contact_message" rows="5"></textarea>
+                </div>
+                <a href="" class="btn btn-theme-color rounded-0 btn-lg">
+                    <span class="text-uppercase">Submit</span>
+                    <span class="icon">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </span>
+                </a>
+              </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

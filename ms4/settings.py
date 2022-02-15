@@ -119,11 +119,6 @@ WSGI_APPLICATION = 'ms4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': dj_database_url.parse('postgres://hcehiioocekjpf:0122414012e9a4eb9144d80a014ed4a47d4197bccebaa2950505f93bfea4f330@ec2-52-208-185-143.eu-west-1.compute.amazonaws.com:5432/desqg9s39r579')
-#}
-
-
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -217,7 +212,7 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
-
+# SMTP Settings
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'tomossmith28@gmail.com'

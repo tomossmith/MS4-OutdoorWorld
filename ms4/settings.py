@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
+    'contact',
 
     # Other
     'crispy_forms',
@@ -213,6 +214,10 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 # SMTP Settings
+
+CONTACT_EMAIL = 'tomossmith28@gmail.com'
+ADMIN_EMAIL = ['tomossmith28@gmail.com',]
+
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'tomossmith28@gmail.com'

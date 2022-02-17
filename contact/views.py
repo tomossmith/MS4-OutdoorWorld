@@ -11,7 +11,8 @@ def contact(request):
             form.save()
             email_subject = f'New contact {form.cleaned_data["email"]}: {form.cleaned_data["subject"]}'
             email_message = form.cleaned_data['message']
-            send_mail(email_subject, email_message, settings.CONTACT_EMAIL, settings.ADMIN_EMAIL)
+            recipient_list = [settings.EMAIL_HOST_USER]
+            send_mail(email_subject, email_message, recipient_list)
             return render(request, 'contact/success.html')
     form = ContactForm()
     context = {'form': form}

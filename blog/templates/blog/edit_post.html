@@ -1,0 +1,5 @@
+<h1>Edit Post</h1>
+
+{% if post.author == request_user %}
+    <p>You are the owner of this post</p>
+{% endif %}

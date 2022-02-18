@@ -17,10 +17,12 @@ def all_posts(request):
     categories = None
     sort = None
     direction = None
+    request_user = request.user
 
     context = {
         'posts': posts,
         'search_term': query,
+        "request_user": request_user,
         #'current_categories': categories,
         #'current_sorting': current_sorting,
     }
@@ -32,9 +34,11 @@ def all_posts(request):
 def post_detail(request, post_id):
     
     post = get_object_or_404(Post, pk=post_id)
+    request_user = request.user
 
     context = {
         'post': post,
+        "request_user": request_user,
     }
 
     return render(request, 'blog/post_detail.html', context)
@@ -65,4 +69,36 @@ def add_post(request):
     }
 
     return render(request, template, context)
-        
+
+
+
+""" A view to edit submitted posts """
+@login_required
+def edit_post(request, post_id):
+    if not request.user.is_authenticated:
+        messages.error(Request, 'Sorry, you must be logged in to edit posts')
+        return redireect(reverse('blog'))
+
+    post = get_object_or_404(Post, pk=post_id)
+    request_user = request.user
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            message.success(request, 'Successfully updated the post!')
+            return redirect(reverse('post_detail', args=[post_id]))
+        else:
+            messages.error(request, 'Failed to update the post, please ensure all fields are filled in correctly.')
+
+    else:
+        form = PostForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+    template = 'blog/edit_post.html'
+    context = {
+        'form': form,
+        'post': post,
+        "request_user": request_user,
+    }
+
+    return render(request, template, context)

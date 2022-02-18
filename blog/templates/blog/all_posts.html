@@ -24,6 +24,16 @@
     {% if post.author == request_user %}
         <a href="{% url 'edit_post' post.id %}">Lets Edit!</a>
     {% endif %}
+
+    {% if post.author == request_user %}
+        <a href="{% url 'delete_post' post.id %}">User Lets Delete!</a>
+    {% endif %}
+
+    {% if request.user.is_staff %}
+        <a href="{% url 'delete_post' post.id %}">Admin Lets Delete!</a>
+    {% endif %}
+
+    
     
     {% endfor %}   
 </div>

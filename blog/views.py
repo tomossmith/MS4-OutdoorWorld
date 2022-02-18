@@ -56,8 +56,8 @@ def add_post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
-            messages.success(request, 'Product was successfully added to the store!')
-            return redirect(reverse('post_detail', args=[post.id]))
+            messages.success(request, 'Post was successfully added to the page!')
+            return redirect(reverse('blog'))
         else:
             messages.error(request, 'failed to add post. Please ensure all fields in the form are filled correctly')
     else:
@@ -69,7 +69,6 @@ def add_post(request):
     }
 
     return render(request, template, context)
-
 
 
 """ A view to edit submitted posts """
@@ -102,3 +101,29 @@ def edit_post(request, post_id):
     }
 
     return render(request, template, context)
+
+
+""" A view to delete a post """
+@login_required
+def delete_post(request, post_id):
+    #if not request.user.is_superuser:
+        post = get_object_or_404(Post, pk=post_id)
+        if request.user == post.author:
+            post = get_object_or_404(Post, pk=post_id)
+            post.delete()
+            messages.success(request, 'Post was successfully deleted')
+            return redirect(reverse('blog'))
+            
+        elif request.user.is_staff == request.user:
+            post = get_object_or_404(Post, pk=post_id)
+            post.delete()
+            messages.success(request, 'Post was successfully deleted')
+            return redirect(reverse('blog'))
+        else:
+            messages.error(request, 'Sorry, you are not authorised to delete this post.')
+            return redirect(reverse('post_detail', args=[post.id]))
+    #else:
+        #post = get_object_or_404(Post, pk=post_id)
+        #post.delete()
+        #messages.success(request, 'Post was successfully deleted')
+        return redirect(reverse('blog'))

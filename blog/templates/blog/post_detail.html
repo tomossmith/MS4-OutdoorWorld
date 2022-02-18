@@ -21,9 +21,7 @@
     <p class="card-text mb-auto">{{ post.content }}</p>
     <a href="{% url 'post_detail' post.id %}">Continue reading...</a>
     
-    {% if post.author == request_user %}
-        <a href="{% url 'edit_post' post.id %}">Lets Edit!</a>
-    {% endif %}
+    
 
     {% endfor %}   
 </div>

@@ -2,190 +2,187 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
 
-    {% block meta %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% endblock %}
+<head>
 
-    {% block extra_meta %}
-    {% endblock %}
+  {% block meta %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% endblock %}
 
-    {% block corecss %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Poppins">
-    <link rel='stylesheet' href="{% static 'css/base.css' %}">
-    {% endblock %}
+  {% block extra_meta %}
+  {% endblock %}
 
-    {% block extra_corecss %}
-    {% endblock %}
+  {% block corecss %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel='stylesheet' href="{% static 'css/base.css' %}">
+  {% endblock %}
 
-    {% block corejs %}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/c903cc7a65.js" crossorigin="anonymous"></script>
-    <!-- Stripe Payments-->
-    <script src="https://js.stripe.com/v3/"></script>
-    {% endblock %}
+  {% block extra_corecss %}
+  {% endblock %}
 
-    {% block extra_js %}
-    {% endblock %}
+  {% block corejs %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="https://kit.fontawesome.com/c903cc7a65.js" crossorigin="anonymous"></script>
+  <!-- Stripe Payments-->
+  <script src="https://js.stripe.com/v3/"></script>
+  {% endblock %}
 
-    <title>Outdoor World {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
-    <header class="container-fluid fixed-top">
-      <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-          <a href="{% url 'home' %}" class="nav-link main-logo-link">
-            <h2 class="logo-font text-shadow text-white my-0"><strong>Outdoor <i class="fas fa-hiking fa-lg text-green"></i> World</strong></h2>
-          </a>
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <form method="GET" action="{% url 'products' %}">
-            <div class="input-group w-100">
-              <input type="text" class="form-control border rounded-0" type="text" name="q" placeholder="Search">
-              <div class="input-group-append">
-                <button class="form-control btn btn-blue border rounded-0" type="submit">
-                  <span class="icon">
-                    <i class="fas fa-search text-white"></i>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-            <li class="list-inline-item dropdown">
-              <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-center">
-                  <div><i class="fas fa-user fa-lg text-green"></i></div>
-                  <p class="my-0 text-white">My Account</p>
-                </div>
-              </a>
-              <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                {% if request.user.is_authenticated %}
-                  {% if request.user.is_superuser %}
-                    <a href="{% url 'add_product' %}" class="dropdown-item">Manage Products</a>
-                  {% endif %}
-                    <a href="{% url 'profile' %}" class="dropdown-item">My Account</a>
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                {% else %}
-                  <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                {% endif %}
-              </div>
-            </li>
-            <li class="list-inline-item">
-              <a class="{% if grand_total %} text-info font-weight-bold{% endif %} nav-link" href="{% url 'view_bag' %}">
-                <div class="text-center">
-                  <div><i class="fas fa-shopping-bag fa-lg text-green"></i></div>
-                  <p class="my-0 text-white">
-                    {% if grand_total %}
-                      £{{ grand_total|floatformat:2 }}
-                    {% else %}
-                      £0.00
-                    {% endif %}
-                  </p>
-                </div>
-              </a>  
-            </li>
-          </ul>
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
-        </div>
-      <div class="row bg-lightblue">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle Navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          {% include 'includes/mobile-top-header.html' %}
-          {% include 'includes/main-nav.html' %}
-        </nav>
+  {% block extra_js %}
+  {% endblock %}
+
+  <title>Outdoor World {% block extra_title %}{% endblock %}</title>
+</head>
+
+<body>
+  <header class="container-fluid fixed-top">
+    <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+        <a href="{% url 'home' %}" class="nav-link main-logo-link">
+          <h2 class="logo-font text-shadow text-white my-0"><strong>Outdoor <i
+                class="fas fa-hiking fa-lg text-green"></i> World</strong></h2>
+        </a>
       </div>
-    </header>
-
-    {% if messages %}
-      <div class="message-container">
-          {% for message in messages %}
-              {% with message.level as level %}
-                  {% if level == 40 %}
-                      {% include 'includes/toasts/toast_error.html' %}
-                  {% elif level == 30 %}
-                      {% include 'includes/toasts/toast_warning.html' %}
-                  {% elif level == 25 %}
-                      {% include 'includes/toasts/toast_success.html' %}
+      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <form method="GET" action="{% url 'products' %}">
+          <div class="input-group w-100">
+            <input type="text" class="form-control border rounded-0" type="text" name="q" placeholder="Search">
+            <div class="input-group-append">
+              <button class="form-control btn btn-blue border rounded-0" type="submit">
+                <span class="icon">
+                  <i class="fas fa-search text-white"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+          <li class="list-inline-item dropdown">
+            <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <div class="text-center">
+                <div><i class="fas fa-user fa-lg text-green"></i></div>
+                <p class="my-0 text-white">My Account</p>
+              </div>
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+              {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+              <a href="{% url 'add_product' %}" class="dropdown-item">Manage Products</a>
+              {% endif %}
+              <a href="{% url 'profile' %}" class="dropdown-item">My Account</a>
+              <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+              {% else %}
+              <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+              <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+              {% endif %}
+            </div>
+          </li>
+          <li class="list-inline-item">
+            <a class="{% if grand_total %} text-info font-weight-bold{% endif %} nav-link" href="{% url 'view_bag' %}">
+              <div class="text-center">
+                <div><i class="fas fa-shopping-bag fa-lg text-green"></i></div>
+                <p class="my-0 text-white">
+                  {% if grand_total %}
+                  £{{ grand_total|floatformat:2 }}
                   {% else %}
-                      {% include 'includes/toasts/toast_info.html' %}
+                  £0.00
                   {% endif %}
-              {% endwith %}
-          {% endfor %}
-    </div>
-    {% endif %}
-
-    {% block page_header %}
-    {% endblock %}
-
-    {% block content %}
-    {% endblock %}
-
-    <footer>
-      <div class="container-fluid">
-          <div class="row bg-lightblue border-top">
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <ul>
-                    <a href="/" class="mb-3 me-2 mb-md-0 text-white text-decoration-none lh-1">
-                      <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-                    </a>
-                    <p class="text-white"> Copyright &copy; 2021-<script>document.write(new Date().getFullYear())</script> Outdoor World</p>   
-                   </ul>
+                </p>
               </div>
-              
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <ul class="text-center">                            
-                        <li>
-                          <a class="nav-link" href="{% url 'contact' %}">
-                              <i class="fas fa-2x fa-envelope text-green"></i>
-                          </a>  
-                       </li>
-                  </ul>
-              </div>
-
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <ul class="text-center list-unstyled d-flex">                            
-                      <li>
-                        <a class="nav-link" href="{% url 'contact' %}">
-                            <i class="fab fa-2x fa-facebook text-green"></i>
-                        </a>  
-                     </li>
-                     <li>
-                      <a class="nav-link" href="{% url 'contact' %}">
-                          <i class="fab fa-2x fa-facebook text-green"></i>
-                      </a>  
-                   </li>
-                   <li>
-                    <a class="nav-link" href="{% url 'contact' %}">
-                        <i class="fab fa-2x fa-facebook text-green"></i>
-                    </a>  
-                 </li>
-                </ul>
-            </div>
-         
-
-         </div> 
+            </a>
+          </li>
+        </ul>
       </div>
+      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
+    </div>
+    <div class="row bg-lightblue">
+      <nav class="navbar navbar-expand-lg navbar-light w-100">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+          aria-controls="main-nav" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        {% include 'includes/mobile-top-header.html' %}
+        {% include 'includes/main-nav.html' %}
+      </nav>
+    </div>
+  </header>
+
+  {% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'includes/toasts/toast_error.html' %}
+    {% elif level == 30 %}
+    {% include 'includes/toasts/toast_warning.html' %}
+    {% elif level == 25 %}
+    {% include 'includes/toasts/toast_success.html' %}
+    {% else %}
+    {% include 'includes/toasts/toast_info.html' %}
+    {% endif %}
+    {% endwith %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% block page_header %}
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+  <footer class="footer">
+    <div class="container-fluid text-center bg-lightblue">      
+        <p class="text-white"> Copyright &copy; 2021-
+          <script>document.write(new Date().getFullYear())</script> Outdoor World
+        </p>
+        <div class="text-center">
+        <ul class="list-unstyled d-flex">
+          <li>
+            <a class="nav-link" href="{% url 'contact' %}">
+              <i class="fas fa-1x fa-envelope text-green"></i>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <i class="fab fa-1x fa-facebook text-green"></i>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <i class="fab fa-1x fa-twitter text-green"></i>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <i class="fab fa-1x fa-instagram text-green"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </footer>
 
-    {% block postloadjs %}
-    <script type="text/javascript">
-      $('.toast').toast('show');
-    </script>
-    {% endblock %}
+  {% block postloadjs %}
+  <script type="text/javascript">
+    $('.toast').toast('show');
+  </script>
+  {% endblock %}
 
-    
-  </body>
-  </html>
+
+</body>
+
+</html>

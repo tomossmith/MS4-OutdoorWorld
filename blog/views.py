@@ -70,25 +70,23 @@ def add_post(request):
 
     return render(request, template, context)
 
-
-""" A view to edit submitted posts """
+""" Edit a post in the blog """
 @login_required
 def edit_post(request, post_id):
-    if not request.user.is_authenticated:
-        messages.error(Request, 'Sorry, you must be logged in to edit posts')
-        return redireect(reverse('blog'))
+    
+    if not request.user.is_superuser:
+        messages.error(Request, 'Sorry, only blog administrators are able to access this page')
+        return redirect(reverse('blog'))
 
     post = get_object_or_404(Post, pk=post_id)
-    request_user = request.user
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
-            message.success(request, 'Successfully updated the post!')
-            return redirect(reverse('post_detail', args=[post_id]))
+            messages.success(request, 'Successfully updated the post!')
+            return redirect(reverse('post_detail', args=[post.id]))
         else:
-            messages.error(request, 'Failed to update the post, please ensure all fields are filled in correctly.')
-
+            messages.error(request, 'Failed to update the post. Please ensure the form is valid.')
     else:
         form = PostForm(instance=post)
         messages.info(request, f'You are editing {post.title}')
@@ -97,7 +95,6 @@ def edit_post(request, post_id):
     context = {
         'form': form,
         'post': post,
-        "request_user": request_user,
     }
 
     return render(request, template, context)

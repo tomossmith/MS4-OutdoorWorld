@@ -14,8 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="col text-center mt-3">
-            <hr>
-            <h2 class="page-heading-font">Adventure & Equipment Blog</h2>
+            <h2 class="page-heading-font">The Outdoor World Equipment and Adventure Blog</h2>
             <h5 class="text-muted">Share your product and adventure reviews</h5>
             <hr>
         </div>
@@ -32,32 +31,14 @@
                     <p class="card-text mb-auto">{{ post.content|slice:"150" }}</p>
                     <a href="{% url 'post_detail' post.id %}"><small>read more...</small></a>
                 </div>
-                    <div class="card-footer bg-transparent">
-                        <small class="text-muted">Posted on: {{ post.created_on }} by {{ post.author }}</small>
-
-                    <div class="float-right">
-                        {% if post.author == request_user %}
-                        <small>
-                            <a href="{% url 'edit_post' post.id %}"><i class="far fa-edit"></i>Edit </a>
-                            <spam>|</span>
-                                <a class="text-danger" href="{% url 'delete_post' post.id %}"><i
-                                        class="far fa-trash-alt"></i> Delete</a>
-                        </small>
-                        {% elif request.user.is_staff %}
-                        <small>
-                            <a href="{% url 'edit_post' post.id %}"><i class="far fa-edit"></i>Edit </a>
-                            <spam>|</span>
-                                <a class="text-danger" href="{% url 'delete_post' post.id %}"><i
-                                        class="far fa-trash-alt"></i> Delete</a>
-                        </small>
-                        {% endif %}
-                    </div>    
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted">Posted on: {{ post.created_on }} by {{ post.author }}</small>
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
-    <hr>
+<hr>
+{% endfor %}
 </div>
 
 {% endblock %}

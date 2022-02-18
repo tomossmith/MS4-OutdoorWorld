@@ -355,6 +355,11 @@ input[name='q']::placeholder {
     object-position: center;
 }
 
+.card-title-font {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+}
+
 
 
 /* -------------------------------- Media Queries */

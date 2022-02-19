@@ -315,6 +315,12 @@ p {
 
 * ### <span id="testing-problems-during-development"><b>Problems During Development</b></span>
 
+- When a user uploaded an image using a URL, the front end image would always appear as a broken image.
+I belive this was because it was trying to refer to a generated URL that is created for an image that is uploaded.
+
+To correct this issue, I created an ELIF statement within the IF function that was already written. 
+The function would then check if an image had been uploaded, if not then check for a image URL and if neither had been uploaded then it would place a generic 'no image' placeholder for the project.
+
 - I was receiving the following error everytime I was trying to edit a blog post:
 
 "django.urls.exceptions.NoReverseMatch: Reverse for 'edit_product' with arguments '('',)' not found. 1 pattern(s) tried: ['products/edit/"  

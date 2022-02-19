@@ -29,7 +29,7 @@ p {
 
 <center><img src="readme-images/website-mockup.png" alt="Website Mockup" width="100%">
 
-[CLICK HERE TO VISIT THE LIVE SITE](https://@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@) </center>
+[CLICK HERE TO VISIT THE LIVE SITE](https://ts-outdoorworld.herokuapp.com/) </center>
 
 ----
 <br>
@@ -156,13 +156,13 @@ p {
 
     I have used Google to source the fonts and these are loaded within the head of the page.
 
-    The logo font is [Sedwick Ave](https://fonts.google.com/specimen/Sedgwick+Ave?preview.text=Outdoor%20World&preview.text_type=custom#standard-styles)
+    The logo font is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue)
 
-    <img src="" alt="Image of the Sedwick Ave Font" width="30%">
+    <img src="" alt="Image of the Bebas Neue Font @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" width="30%">
 
     This is the font @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-    The secondary font is [@@@@@@@@@@@@@@@@@@@@@@@@@@@@@](https://@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@)
+    The secondary font is [Montserrat](https://fonts.google.com/specimen/Montserrat)
 
     <img src="" alt="Image of the @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Font" width="30%">
 
@@ -170,9 +170,8 @@ p {
 
 * ### <span id="ux-design-images"><b>Images</b></span>
 
-    There is very little base images on the site, but does display a large amount of images based on the content uploads of the end user.
-    The images for each of the recipes posted to the site are outsourced and the user must provide a url to the image of their recipe when uploading it to the site.
-    These uploads then form the design of all the pages.
+    There is very little base images on the site, the majority of the images are the product images.
+    The images for each of the products to the site are outsourced and the staff/administrator must provide a url to the image or they can use the image upload function that will store and reference the image from a remote storage solution by Amazon S3.
 
 * ### <span id="ux-design-structure"><b>Structure & Mockup Designs</b></span>
 
@@ -316,6 +315,11 @@ p {
 
 * ### <span id="testing-problems-during-development"><b>Problems During Development</b></span>
 
+- I was receiving the following error everytime I was trying to edit a blog post:
+
+"django.urls.exceptions.NoReverseMatch: Reverse for 'edit_product' with arguments '('',)' not found. 1 pattern(s) tried: ['products/edit/"  
+
+After reading through my code in detail, I noticed I had forgotten to include the post.id within the form action.
 
 <br>
 
@@ -400,4 +404,4 @@ p {
 * ### <span id="credits-acknowledgments"><b>Acknowledgements</b></span>
 
     - Thank you to everyone on Slack for help and advice
-    - Thank you to my mentor Caleb Mbakwe for his great guidance
+    - Thank you to my mentor [Caleb Mbakwe](https://www.linkedin.com/in/calebmbakwe/) for his great guidance

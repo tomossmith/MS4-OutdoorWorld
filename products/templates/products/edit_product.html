@@ -14,9 +14,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="page-heading-font">The Outdoor World Equipment and Adventure Blog</h2>
+            <h2 class="page-heading-font">Product Management</h2>
                 <h5 class="category-badge text-decoration none">
-                    <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-theme-color">Edit Post</span>
+                    <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-theme-color">Edit Product</span>
                 </h5>
             <hr class="w-50 mb-1">
         </div>
@@ -24,14 +24,14 @@
 
         <div class="row d-flex justify-content-center">
             <div class="col-6">
-                <form method="POST" action="{% url 'edit_post' %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {{ field | as_crispy_field }}
                     {% endfor %}
                     <div class="text-right">
                         <a class="btn btn-red rounded-0" href="{% url 'blog' %}">Cancel</a>
-                        <button class="btn btn-theme-color rounded-0" type="submit">Add Post</button>
+                        <button class="btn btn-theme-color rounded-0" type="submit">Edit Product</button>
                     </div>
                 </form>
             </div>            

@@ -7,10 +7,9 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
 
-# Create your views here.
 
+""" A view to show all the products, including sorting and search queries """
 def all_products(request):
-    """ A view to show all the products, including sorting and search queries """
 
     products = Product.objects.all()
     query = None
@@ -61,10 +60,9 @@ def all_products(request):
     
     return render(request, 'products/products.html', context)
 
-
+""" A view to show individual product details """
 def product_detail(request, product_id):
-    """ A view to show individual product details """
-
+    
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
@@ -73,9 +71,9 @@ def product_detail(request, product_id):
     
     return render(request, 'products/product_detail.html', context)
 
+""" Add a product to the store """
 @login_required
-def add_product(request):
-    """ Add a product to the store """
+def add_product(request): 
     if not request.user.is_superuser:
         messages.error(Request, 'Sorry, only store administrators are able to access this page')
         return redirect(reverse('home'))
@@ -98,11 +96,11 @@ def add_product(request):
 
     return render(request, template, context)
 
+""" Edit a product in the store """
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the store """
     if not request.user.is_superuser:
-        messages.error(Request, 'Sorry, only store administrators are able to access this page')
+        messages.error(request, 'Sorry, you need to have the correct account privileges to edit products.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -110,10 +108,10 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated the product!')
+            messages.success(request, f'Successfully updated {product.name}!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update the product. Please ensure the form is valid.')
+            messages.error(request, f'Failed to update {product.name}. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -126,9 +124,9 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+""" Delete a product from the store """
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(Request, 'Sorry, only store administrators are able to access this page')
         return redirect(reverse('home'))

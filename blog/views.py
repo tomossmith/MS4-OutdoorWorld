@@ -23,8 +23,6 @@ def all_posts(request):
         'posts': posts,
         'search_term': query,
         "request_user": request_user,
-        #'current_categories': categories,
-        #'current_sorting': current_sorting,
     }
 
     return render(request, 'blog/all_posts.html', context)

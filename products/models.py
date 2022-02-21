@@ -15,6 +15,11 @@ class Category(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
+SIZE_CHOICES = [
+    ('clothing', 'Clothing'),
+    ('footwear', 'Footwear'),
+    ('no-sizes', 'No Sizing'),
+]
 
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
@@ -22,7 +27,8 @@ class Product(models.Model):
     brand = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    #has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    has_sizes =  models.CharField(max_length=15, choices=SIZE_CHOICES, default='no-sizing')
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

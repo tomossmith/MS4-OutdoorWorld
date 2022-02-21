@@ -1,13 +1,16 @@
 from django import forms
 from .models import Post
+from .widgets import CustomClearableFileInput
 
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        exclude = ()
-        fields = ('title', 'content', 'status', 'author', 'slug',)
+        exclude = ('author',)
+        fields = ('title', 'content', 'image',)
+
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         """
@@ -18,7 +21,7 @@ class PostForm(forms.ModelForm):
         placeholders = {
             'title': 'Title',
             'content': 'Content',
-            'status': 'Status',
+            'image': 'Image',
         }
     
 

@@ -10,6 +10,7 @@ from profiles.models import UserProfile
 import json
 import time
 
+
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
@@ -25,13 +26,15 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
+        print(subject, body, cust_email, settings.DEFAULT_FROM_EMAIL,)
+
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )      
+        )
 
     def handle_event(self, event):
         """
@@ -65,13 +68,13 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             profile.profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.phone_number =shipping_details.phone
-                profile.country =shipping_details.address.country
-                profile.postcode =shipping_details.address.postal_code
-                profile.town_or_city =shipping_details.address.city
-                profile.street_address1 =shipping_details.address.line1
-                profile.street_address2 =shipping_details.address.line2
-                profile.county =shipping_details.address.state
+                profile.phone_number = shipping_details.phone
+                profile.country = shipping_details.address.country
+                profile.postcode = shipping_details.address.postal_code
+                profile.town_or_city = shipping_details.address.city
+                profile.street_address1 = shipping_details.address.line1
+                profile.street_address2 = shipping_details.address.line2
+                profile.county = shipping_details.address.state
                 profile.save()
 
         order_exists = False

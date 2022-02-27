@@ -14,6 +14,10 @@ body {
     font-family: 'Montserrat';
 }
 
+.footer {
+    margin-top: 1em;
+}
+
 .bebas {
     font-family: 'Bebas Neue', cursive !important;
 }

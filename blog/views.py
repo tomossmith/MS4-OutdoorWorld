@@ -12,7 +12,6 @@ from .forms import PostForm
 """ A view to show all the blog posts """
 def all_posts(request):
     
-
     posts = Post.objects.all()
     query = None
     categories = None

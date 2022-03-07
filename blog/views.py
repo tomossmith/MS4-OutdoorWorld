@@ -25,7 +25,7 @@ def all_posts(request):
         "request_user": request_user,
     }
 
-    return render(request, 'blog/all_posts.html', context)
+    return render(request, '', context)
 
 
 """ A view to display an expanded view of the chosen post """

@@ -7,8 +7,7 @@ from django.db.models import Q
 
 from .models import Post
 from .forms import PostForm
-
-
+    
 """ A view to show all the blog posts """
 def all_posts(request):
     
@@ -25,7 +24,7 @@ def all_posts(request):
         "request_user": request_user,
     }
 
-    return render(request, '', context)
+    return render(request, 'blog/blog.html', context)
 
 
 """ A view to display an expanded view of the chosen post """

@@ -7,8 +7,8 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        exclude = ('author',)
-        fields = ('title', 'content', 'image',)
+        fields = ('title', 'content', 'image', 'author',)
+        widgets = {'author': forms.HiddenInput(),}
 
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
@@ -19,6 +19,7 @@ class PostForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
+            'author': 'author',
             'title': 'Title',
             'content': 'Content',
             'image': 'Image',

@@ -23,13 +23,13 @@
         <div class="col-10">
             <div class="card">
                 <div class="card-header bg-lightblue">
-                    <h5 class="card-title card-title-font text-white" href="{% url 'post_detail' post.id %}">
+                    <!--<h5 class="card-title card-title-font text-white" href="{% url 'post_detail' post.id %}">-->
                         <i class="fab fa-telegram"></i> {{ post.title }}</h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4">                  
-                            {% if post.image %}
+                           <!-- {% if post.image %}
                                 <a href="{% url 'post_detail' post.id %}">
                                     <img class="card-img-top img-fluid" src="{{ post.image.url }} " alt=" {{ post.name }}">
                                 </a>
@@ -43,7 +43,7 @@
                                     <a href="{% url 'post_detail' post.id %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}/base-images/no-image.png" alt="{{ post.name }}">
                                     </a>
-                            {% endif %}
+                            {% endif %} -->
                         </div>  
                         <div class="col-18">
                             <p class="card-text mb-auto">{{ post.content }}</p>

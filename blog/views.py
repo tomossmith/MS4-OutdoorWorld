@@ -45,6 +45,8 @@ def post_detail(request, post_id):
 @login_required
 def add_post(request):
 
+    request_user = request.user
+
     if not request.user.is_authenticated:
         messages.error(Request, 'Sorry, you must be logged in to add a post.')
         return redirect(reverse('blog'))

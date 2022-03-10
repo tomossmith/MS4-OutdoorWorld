@@ -69,6 +69,23 @@
       </div>
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+          {% if request.user.is_superuser %}
+          <li class="list-inline-item dropdown">
+            <a class="nav-link" href="#" id="admin-options" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <div class="text-center">
+                <div><i class="fas fa-user-cog fa-lg text-green"></i></div>
+                <p class="my-0 text-white">Manage Site</p>
+              </div>
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+              
+              <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
+              <a href="{% url 'add_post' %}" class="dropdown-item">Add Blog Post</a>
+              
+            </div>
+          </li>
+          {% endif %}
           <li class="list-inline-item dropdown">
             <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
@@ -79,9 +96,6 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
-              {% if request.user.is_superuser %}
-              <a href="{% url 'add_product' %}" class="dropdown-item">Manage Products</a>
-              {% endif %}
               <a href="{% url 'profile' %}" class="dropdown-item">My Account</a>
               <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
               {% else %}
@@ -144,37 +158,24 @@
   {% block content %}
   {% endblock %}
 
-  <footer class="footer">
-    <div class="container-fluid text-center bg-lightblue">      
-        <p class="text-white"> Copyright &copy; 2021-
-          <script>document.write(new Date().getFullYear())</script> Outdoor World
-        </p>
-        <div class="text-center">
-        <ul class="list-unstyled d-flex">
-          <li>
-            <a class="nav-link" href="{% url 'contact' %}">
-              <i class="fas fa-1x fa-envelope text-green"></i>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fab fa-1x fa-facebook text-green"></i>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fab fa-1x fa-twitter text-green"></i>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">
-              <i class="fab fa-1x fa-instagram text-green"></i>
-            </a>
-          </li>
-        </ul>
+  <!-- Footer -->
+<footer class="page-footer font-small bg-lightblue">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 py-3">
+        <div class="d-flex justify-content-center">
+          <a href="#"><i class="fab fa-facebook-f fa-lg text-green mr-md-5 mr-3 fa-2x"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-lg text-green mr-md-5 mr-3 fa-2x"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-lg text-green mr-md-5 mr-3 fa-2x"></i></a>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="footer-copyright text-center text-white py-1">Copyright &copy; 2021-
+    <script>document.write(new Date().getFullYear())</script> Outdoor World
+  </div>
+</footer>
+
 
   {% block postloadjs %}
   <script type="text/javascript">

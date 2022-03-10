@@ -2,62 +2,104 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="page-heading-font">The Outdoor Blog</h2>
+            <div class="row justify-content-center">
+                <div class="card text-center mb-4 w-50">
+                    <div class="card-header">
+                        <h3><i class="fab fa-telegram"></i> {{ post.title }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ post.body }}</p>
 
-<h1>Test Post Detail</h1>
+                        <div class="row justify-content-center">
+                            <div class="collapse" id="collapseComments">
+                                <div class="card card-body text-left">
+                                    {% for comment in post.comments.all %}
+                                    <article class="media">
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <p>
+                                                    <strong><i class="fas fa-comment"></i>{{ comment.name }}</strong>
+                                                    <small>{{ comment.date_added }}</small>
+                                                    <hr>
+                                                    {{ comment.body }}
+                                                </p>
+                                                {% if request.user.is_superuser %}
+                                                    <small>
+                                                        <a class="text-danger" href="{% url 'delete_comment' comment.id %}">
+                                                            <i class="far fa-trash-alt"></i> Delete</a>
+                                                    </small>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </article>
 
-        <h1>Post Details</h1>
 
-            <p>{{ post.title }}</p>
-            <small>Posted at {{ post.date_added }}</small>
-        
-            <p>{{ post.intro }}</p>
-            <p>{{ post.body }}</p>
+                                    {% empty %}
 
+                                    <div class="notification">
+                                        <p>No Comments Yet!</p>
+                                    </div>
 
-            <h2>Comments</h2>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
 
-            {% for comment in post.comments.all %}
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p>
-                                <strong>{{ comment.name }}</strong>
-                                <small>{{ comment.date_added }}</small>
-                                    <br>
-                                    {{ comment.body }}
-                            </p>
+                        <div class="row justify-content-center">
+                            <div class="collapse" id="collapseAddComments">
+                                <div class="card card-body">
+                                    <form action="." method="post">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        <div class="field">
+                                            <div class="control">
+                                                <button class="btn btn-theme-color is-success">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </article>
-            {% empty %}
+                    <div class="card-footer text-muted">
+                        Posted on: {{ post.date_added }}
 
-            <div class="notification">
-                <p>No Comments Yet!</p>
-            </div>
-
-            {% endfor %}
-
-
-            <h2>Add Comments</h2>
-
-            <form action="." method="post">
-                {% csrf_token %}
-
-                {{ form.as_p }}
-
-                <div class="field">
-                    <div class="control">
-                        <button class="button is-success">Submit</button>
+                        {% if request.user.is_superuser %}
+                    <small>
+                        <a href="{% url 'edit_post' post.id %}"><i class="far fa-edit"></i>Edit  </a>
+                        <span>|</span>
+                        <a class="text-danger" href="{% url 'delete_post' post.id %}"><i class="far fa-trash-alt"></i> Delete</a>
+                    </small>
+                {% endif %}
+                        <p>
+                            <button class="btn btn-theme-color" type="button" data-toggle="collapse"
+                                data-target="#collapseComments" aria-expanded="false" aria-controls="collapseComments">
+                                Comments
+                            </button>
+                            <button class="btn btn-theme-color" type="button" data-toggle="collapse"
+                                data-target="#collapseAddComments" aria-expanded="false"
+                                aria-controls="collapseAddComments">
+                                Add Comment
+                            </button>
+                        </p>
                     </div>
                 </div>
+            </div>
 
-            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

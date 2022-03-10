@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<h1>Test Post Detail</h1>
+
+        <h1>Post Details</h1>
+
+            <p>{{ post.title }}</p>
+            <small>Posted at {{ post.date_added }}</small>
+        
+            <p>{{ post.intro }}</p>
+            <p>{{ post.body }}</p>
+
+
+            <h2>Comments</h2>
+
+            {% for comment in post.comments.all %}
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{ comment.name }}</strong>
+                                <small>{{ comment.date_added }}</small>
+                                    <br>
+                                    {{ comment.body }}
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            {% empty %}
+
+            <div class="notification">
+                <p>No Comments Yet!</p>
+            </div>
+
+            {% endfor %}
+
+
+            <h2>Add Comments</h2>
+
+            <form action="." method="post">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-success">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+{% endblock %}

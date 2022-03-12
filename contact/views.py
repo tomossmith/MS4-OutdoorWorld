@@ -32,6 +32,8 @@ def contact(request):
                     {
                         "name": name,
                         "subject": subject,
+                        "message": message,
+                        "email": email,
                     }
                 ),
                 settings.EMAIL_HOST_USER, [email], fail_silently=True

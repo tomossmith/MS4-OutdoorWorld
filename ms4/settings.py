@@ -217,12 +217,12 @@ STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 # SMTP Settings
 
-CONTACT_EMAIL = 'tomossmith28@gmail.com'
-ADMIN_EMAIL = ['tomossmith28@gmail.com',]
+CONTACT_EMAIL = 'outdoorworldms4@gmail.com'
+ADMIN_EMAIL = ['outdoorworldms4@gmail.com',]
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'tomossmith28@gmail.com'
+    DEFAULT_FROM_EMAIL = 'outdoorworldms4@gmail.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True

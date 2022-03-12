@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.template.loader import get_template
 from django.conf import settings
 from .models import Contact
 from .forms import ContactForm
@@ -18,29 +17,16 @@ def contact(request):
             subject = request.POST.get('subject')
             message = request.POST.get('message')
 
-            #send_mail(
-            #    subject,
-            #    message,
-            #    settings.EMAIL_HOST_USER, [email], fail_silently=True
-            #)
-
-
             send_mail(
-                'Contact Form Submission',
-                get_template('contact/templates/email/contact-form-reply.html')
-                .render(
-                    {
-                        "name": name,
-                        "subject": subject,
-                        "message": message,
-                        "email": email,
-                    }
-                ),
+                subject,
+                message,
                 settings.EMAIL_HOST_USER, [email], fail_silently=True
             )
 
-            messages.success(request, 'Successfully sent message')
-            return render(request, 'contact/success.html')
+            messages.success(request, 'Successfully sent message, a member of our team will reply as soon as possible.')
+
+            template = 'home/index.html'            
+            return render(request, template)
         else:
             messages.error(request,
                            'Message could not be sent. \

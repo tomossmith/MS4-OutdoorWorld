@@ -24,13 +24,8 @@
   <li class="list-inline-item dropdown">
       <a class="text-white nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="text-center">
-              <div><i class="fas fa-user fa-lg text-green"></i></div>
-              <p class="my-0">
-                {% if request.user.is_authenticated %}
-                {{ profile }}'s Account</p>
-              {% else %}
-                My Account</p>
-              {% endif %}
+            <div><i class="fas fa-user fa-lg text-green"></i></div>
+            <p class="my-0 text-white">My Account</p>
           </div>
       </a>
       <div class="dropdown-menu border-0" aria-labelledby="user-options">

@@ -16,7 +16,7 @@ p {
 
 </style>
 
-<center><img src="static/images/logo.png" alt="Outdoor world Logo" width="50%"></center>
+<center><img src="static/readme-images/ow-logo.png" alt="Outdoor World Logo" width="50%"></center>
 
 ----
 
@@ -98,7 +98,6 @@ p {
 |A1|All Users | See that they have landed on the correct site they intended to visit.| To reassure users they have arrived at the correct store.|
 |A |All Users | Understand the purpose and reason for the store.| To keep the interest of the users.|
 |A |All Users | Be able to view the website correctly on any device.|Browse the store fully without missing out on content or having a negative experience|
-|A |All Users | The website should load quickly and only load the necessary files required to display the key elements of the site first.| To reduce page load times.|
 |A |All Users | Find the business's social links| To engage with the business's social media pages and share the website with friends.|
 |A |Shopper | See all the products available| To find suitable products to purchase|
 |A |Shopper | Easily navigate categories of different products| To display a narrower selection of products they are interested in buying|
@@ -121,7 +120,7 @@ p {
 
     - The website administrator must not be able to delete the main administrator account from the database.
 
-    - The website administrator must be able to create, remove, update and delete recipe categories.
+    - The website administrator must be able to create, remove, update and delete products.
 
     - The website administrator must be the only users to have access to the restricted websites and non-administrators must not be able to access restricted sites by direct URL inputs.
 

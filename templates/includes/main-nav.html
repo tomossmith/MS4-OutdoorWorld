@@ -1,7 +1,48 @@
 <div class="collapse navbar-collapse" id="main-nav">
+    
     <ul class="navbar-nav w-auto mx-auto">
+        
+            {% if request.user.is_superuser %}
+                  <li class="list-inline-item dropdown">
+                    <a class="nav-link d-block d-lg-none" href="#" id="admin-options" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                        <span class="my-0 text-white logo-font font-weight-bold mr-4 letter-spacing-2">Manage Site</span>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+        
+                      <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
+                      <a href="{% url 'add_post' %}" class="dropdown-item">Add Blog Post</a>
+        
+                    </div>
+                  </li>
+                  {% endif %}
+            
+          <li class="list-inline-item dropdown">
+              <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="my-0 text-white logo-font font-weight-bold mr-4 letter-spacing-2"> My Account</span>
+              </a>
+              <div class="dropdown-menu border-0 mb-0" aria-labelledby="user-options">
+                  {% if request.user.is_authenticated %}
+                      {% if request.user.is_superuser %}
+                          <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                      {% endif %}
+                      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                  {% else %}
+                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                  {% endif %}
+              </div>
+          </li>
+         
+
+
+
+
+
+
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
@@ -11,7 +52,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="#" id="mens-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="#" id="mens-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Mens
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="mens-link">
@@ -26,7 +67,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="#" id="womens-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="#" id="womens-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Womens
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="womens-link">
@@ -41,7 +82,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="#" id="kids-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="#" id="kids-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Kids
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="kids-link">
@@ -56,7 +97,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="#" id="equipment-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="#" id="equipment-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Equipment
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="equipment-link">
@@ -71,8 +112,8 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Deals
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
@@ -82,12 +123,12 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="{% url 'blog' %}">
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="{% url 'blog' %}">
                 Blog
             </a>
         </li>
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-white mr-5 letter-spacing-2" href="{% url 'contact' %}">
+            <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="{% url 'contact' %}">
                 Contact
             </a>
         </li>

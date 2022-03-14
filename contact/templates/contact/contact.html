@@ -11,21 +11,21 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col text-center mt-3">
-            <h2 class="page-heading-font">Contact Us</h2>
-            <hr class="w-50 mb-1">
+<div class="container mb-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col">
+            <h2 class="page-heading-font text-center">Contact Us</h2>
+            <hr>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-10">
             <form method="POST" action="{% url 'contact' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <div class="text-right">
-                    <a class="btn btn-red rounded-0" href="{% url 'home' %}">Cancel</a>
-                    <button class="btn btn-theme-color rounded-0" type="submit">Send Message</button>
+                <div class="text-center">
+                    <a class="btn btn-red rounded-0" href="{% url 'home' %}"><i class="fas fa-window-close"></i> Cancel</a>
+                    <button class="btn btn-theme-color rounded-0" type="submit"><i class="fas fa-paper-plane"> </i> Send Message</button>
                 </div>
             </form>
         </div>            

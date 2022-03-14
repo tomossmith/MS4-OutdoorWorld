@@ -11,18 +11,16 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <hr>
-                <h2 class="logo-font mb-4">Product Management</h2>
-                <h5 class="text-muted">Add a Product</h5>
+    <div class="container mb-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <h2 class="page-heading-font text-center">Add Product</h2>
                 <hr>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-10">
                 <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% for field in form %}
                         {% if field.name != 'image' %}
@@ -31,9 +29,9 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %} 
-                    <div class="text-right">
-                        <a class="btn btn-red rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-theme-color rounded-0" type="submit">Add Product</button>
+                    <div class="row justify-content-center">
+                        <a class="btn btn-red rounded-0 mr-1" href="{% url 'products' %}"><i class="fas fa-window-close"></i> Cancel</a>
+                        <button class="btn btn-theme-color rounded-0" type="submit"><i class="fas fa-plus-square"></i> Add Product</button>
                     </div>
                 </form>
             </div>            

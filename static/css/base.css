@@ -54,12 +54,14 @@ body {
     background-color: #0000007a;
 }
 
-#topnav {
-    background-color: #375CA6;
-}
-
 .letter-spacing-2 {
     letter-spacing: 2px;
+}
+
+/* ---------------------------------- Navigation */
+
+#topnav {
+    background-color: #375CA6;
 }
 
 /* from Bulma - Maintains FontAwesome icon sizes and centering */

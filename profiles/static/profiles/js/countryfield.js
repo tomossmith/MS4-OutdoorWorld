@@ -1,3 +1,11 @@
+$("#hide").click(function(){
+    $("p").hide();
+  });
+  
+  $("#show").click(function(){
+    $("p").show();
+  });
+
 let countrySelected = $('#id_default_country').val();
 if(!countrySelected) {
     $('#id_default_country').css('color', '#aab7c4');

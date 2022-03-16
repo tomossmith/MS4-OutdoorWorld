@@ -29,7 +29,7 @@ p {
 
 <br>
 
-<center><img src="static/readme-images/ow-mockups.png" alt="Website Mockup" width="100%">
+<center><img src="static/readme-images/ow-mockups.png" alt="Website Mockup" width="80%">
 
 [CLICK HERE TO VISIT THE LIVE SITE](https://ts-outdoorworld.herokuapp.com/) </center>
 
@@ -84,6 +84,8 @@ p {
 *   Design, develop and implement a full stack web application using HTML, CSS, JavaScript, Python and Django
 
 *   Identify and apply necessary security features
+
+*   Design a website that uses HTML, CSS, Javascript, Python & Django
 
 
 # <span id="ux">User Experience (UX)</span>
@@ -209,6 +211,21 @@ p {
     * #### <b>User Account</b>
 
 * ### <span id="features-future"><b>Possible Future Features</b></span>
+
+    * #### Loyalty Scheme
+    Returning customers can use their Outdoor World accounts to store and build loyalty points from regular purchases. These points could then be redeemed against money off vouchers. 
+
+    This would be a good way for the store to retain and attract repeat business, in turn impoving sales.
+
+    * #### Local Activity Section
+    In order to offer the customers with opportunities to use the equipment they buy in the store. It would be good to offer adventures and tours that the store operates on the site. Customers could then register and pay for the courses online.
+
+    This could create a good customer and business relationship, also helping to boost sales from any recommendations that instructors could make during the activities.
+
+    * #### Hire Shop
+    As the store is located within a watersport center, it would be great to manage all the equipment hires.
+    
+    Customers could be able to book and pay for the equipment online, the system would then generate an email with a unique code that the customer could present in-store to collect the hire equipment.
 
 ## <span id="database"><b>Database</b></span>
 

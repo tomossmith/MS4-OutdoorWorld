@@ -213,24 +213,24 @@ p {
 * ### <span id="features-future"><b>Possible Future Features</b></span>
 
     * #### Loyalty Scheme
-    Returning customers can use their Outdoor World accounts to store and build loyalty points from regular purchases. These points could then be redeemed against money off vouchers. 
+        Returning customers can use their Outdoor World accounts to store and build loyalty points from regular purchases. These points could then be redeemed against money off vouchers. 
 
-    This would be a good way for the store to retain and attract repeat business, in turn impoving sales.
+        This would be a good way for the store to retain and attract repeat business, in turn impoving sales.
 
     * #### Local Activity Section
-    In order to offer the customers with opportunities to use the equipment they buy in the store. It would be good to offer adventures and tours that the store operates on the site. Customers could then register and pay for the courses online.
+        In order to offer the customers with opportunities to use the equipment they buy in the store. It would be good to offer adventures and tours that the store operates on the site. Customers could then register and pay for the courses online.
 
-    This could create a good customer and business relationship, also helping to boost sales from any recommendations that instructors could make during the activities.
+        This could create a good customer and business relationship, also helping to boost sales from any recommendations that instructors could make during the activities.
 
     * #### Hire Shop
-    As the store is located within a watersport center, it would be great to manage all the equipment hires.
+        As the store is located within a watersport center, it would be great to manage all the equipment hires.
     
-    Customers could be able to book and pay for the equipment online, the system would then generate an email with a unique code that the customer could present in-store to collect the hire equipment.
+        Customers could be able to book and pay for the equipment online, the system would then generate an email with a unique code that the customer could present in-store to collect the hire equipment.
 
     * #### Product Reviews
 
-    Customers could leave reviews for products they have purchased in the store.
-    This can improve the shopping experience for others when browsing products and hopefully help promote sales for products receiving good reviews.
+        Customers could leave reviews for products they have purchased in the store.
+        This can improve the shopping experience for others when browsing products and hopefully help promote sales for products receiving good reviews.
 
 ## <span id="database"><b>Database</b></span>
 
@@ -433,4 +433,6 @@ After reading through my code in detail, I noticed I had forgotten to include th
 * ### <span id="credits-acknowledgments"><b>Acknowledgements</b></span>
 
     - Thank you to everyone on Slack for help and advice
+    - Thanks to all the tutors who have supported me during the project.
+    - Thanks to Code Intitute for the walk through project which I used and referenced during the development.
     - Thank you to my mentor [Caleb Mbakwe](https://www.linkedin.com/in/calebmbakwe/) for his great guidance

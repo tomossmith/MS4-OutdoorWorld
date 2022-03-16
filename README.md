@@ -227,6 +227,11 @@ p {
     
     Customers could be able to book and pay for the equipment online, the system would then generate an email with a unique code that the customer could present in-store to collect the hire equipment.
 
+    * #### Product Reviews
+
+    Customers could leave reviews for products they have purchased in the store.
+    This can improve the shopping experience for others when browsing products and hopefully help promote sales for products receiving good reviews.
+
 ## <span id="database"><b>Database</b></span>
 
 <img src="" alt="Wireframe image for the database plans." width="50%">

@@ -13,12 +13,6 @@ body {
     font-family: 'Montserrat';
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
 .bebas {
     font-family: 'Bebas Neue', cursive !important;
 }

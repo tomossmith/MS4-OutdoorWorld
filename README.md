@@ -22,12 +22,14 @@ p {
 
     This is the README file for my Code Institute MS4 project site, Outdoor World - The online outdoor equipment store.
 
+    Outdoor World is an online store selling outdoor clothing and equipment for a range of activities. The store also has a blog feature for the store owners to help promote products, also allowing readers to comment on their posts for customer interaction.
+
     This project is the 4th project as part of the Code Institute Full Stack Development course. The projects are set in order to demonstrate my understanding of what we have learnt during the previous units.
     The task set for this project is to build a full-stack site based around business logic used to control a centrally-owned dataset and set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.
 
 <br>
 
-<center><img src="readme-images/website-mockup.png" alt="Website Mockup" width="100%">
+<center><img src="static/readme-images/ow-mockups.png" alt="Website Mockup" width="100%">
 
 [CLICK HERE TO VISIT THE LIVE SITE](https://ts-outdoorworld.herokuapp.com/) </center>
 

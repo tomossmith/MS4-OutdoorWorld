@@ -28,7 +28,8 @@
                 <div class="card-body">
 
                 {% if post.image %}
-                    <img class="card-img-top img-fluid" src="{{ post.image.url }} " alt="Image for blog post:{{ post.title }}">
+                    <img class="card-img-top img-fluid" src="{{ post.image }} " alt="Image for blog post:{{ post.title }}">
+                    
 
                 {% elif post.image_url %}
                     <img class="card-img-top img-fluid" src="{{ post.image_url }} " alt="Image for blog post:{{ post.title }}">

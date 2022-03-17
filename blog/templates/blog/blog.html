@@ -24,9 +24,10 @@
         <div class="row no-gutters">
             <div class="col-12 text-center">
                 {% if post.image %}
-                <a href="{% url 'post_detail' post.id %}">
+                <!--<a href="{% url 'post_detail' post.id %}">
                     <img class="w-40 p-2" src="{{ post.image }}" alt=" {{ post.title }}">
-                </a>
+                </a>-->
+                <img class="w-40 p-2" src="{{ post.image }}" alt=" {{ post.title }}">
 
                 {% elif post.image_url %}
                 <a href="{% url 'post_detail' post.id %}">

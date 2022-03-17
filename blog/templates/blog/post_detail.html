@@ -26,6 +26,17 @@
                     <h3><i class="fab fa-telegram"></i> {{ post.title }}</h3>
                 </div>
                 <div class="card-body">
+
+                {% if post.image %}
+                    <img class="card-img-top img-fluid" src="{{ post.image.url }} " alt="Image for blog post:{{ post.title }}">
+
+                {% elif post.image_url %}
+                    <img class="card-img-top img-fluid" src="{{ post.image_url }} " alt="Image for blog post:{{ post.title }}">
+
+                {% else %}
+
+                {% endif %}
+
                     <p class="card-text">{{ post.body }}</p>
                 </div>
                 <div class="card-footer text-muted">
@@ -110,9 +121,5 @@
             </div>
         </div>
     </div>
-</div>
-
-</div>
-</div>
 </div>
 {% endblock %}

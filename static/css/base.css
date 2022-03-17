@@ -42,10 +42,6 @@ body {
     background-color: #5274d9;
 }
 
-.bg-red{
-    background-color: red;
-}
-
 .bg-blue {
     background-color: #375CA6 !important;
 }
@@ -56,6 +52,10 @@ body {
 
 .bg-black-opacity {
     background-color: #0000007a;
+}
+
+#delivery-banner{
+    background-color: #000 !important;
 }
 
 .letter-spacing-2 {

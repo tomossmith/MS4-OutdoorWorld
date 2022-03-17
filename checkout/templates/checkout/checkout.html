@@ -38,30 +38,25 @@
             <div class="row">
                 <div class="col-2 mb-1">
                     <a href="{% url 'product_detail' item.product.id %}">
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }} "
-                                alt=" {{ product.name }}">
-                        </a>
-
-                        {% elif product.image_url %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image_url }} "
-                                alt=" {{ product.name }}">
-                        </a>
-
+                        {% if item.product.image %}
+                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded" alt="{{ item.product.name }}">
+                        {% elif item.product.image_url %}
+                        <img src="{{ item.product.image_url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
                         {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}base-images/no-image.png"
-                                alt="{{ product.name }}">
-                        </a>
+                        <img src="{{ MEDIA_URL }}/base-images/no-image.png" class="img-fluid rounded" alt="{{ item.product.name }}">
                         {% endif %}
                     </a>
                 </div>
                 <div class="col-7">
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                    <p class="my-0 small">Size:
-                        {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                    <p class="my-0 small"><strong>Size: </strong>
+                        {% if item.product.has_sizes == 'clothing' %}
+                            {{ item.size|upper }} 
+                        {% elif item.product.has_sizes == 'footwear' %}
+                            {{ item.size }}
+                        {% else %}
+                        N/A
+                        {% endif %}</p>
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-right">

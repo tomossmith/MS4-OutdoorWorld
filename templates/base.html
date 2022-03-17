@@ -53,7 +53,6 @@
                 class="fas fa-hiking fa-lg text-green"></i> World</strong></h2>
         </a>
       </div>
-
       <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
           <li class="list-inline-item">
@@ -155,6 +154,11 @@
         {% include 'includes/main-nav.html' %}
       </nav>
     </div>
+    <div id="delivery-banner" class="row text-center">
+      <div class="col bg-red text-white">
+          <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+      </div>            
+  </div>
   </header>
 
   {% if messages %}
@@ -177,35 +181,15 @@
 
   {% block page_header %}
   {% endblock %}
-
   {% block content %}
   {% endblock %}
-
-  <!-- Footer -->
-<footer class="font-small">
-  <div class="bg-lightblue">
-    <div class="py-3">
-      <div class="d-flex justify-content-center">
-        <a href="#"><i class="fab fa-facebook-f fa-lg text-green mr-4 fa-2x"></i></a>
-        <a href="#"><i class="fab fa-twitter fa-lg text-green mr-4 fa-2x"></i></a>
-        <a href="#"><i class="fab fa-instagram fa-lg text-green fa-2x"></i></a>
-      </div>
-    </div>
-  <div class="text-center text-white font-weight-bold pb-2">Copyright &copy; 2021-
-    <script>
-      document.write(new Date().getFullYear())
-    </script> Outdoor World
-  </div>
-</div>
-</footer>
 
   {% block postloadjs %}
   <script type="text/javascript">
     $('.toast').toast('show');
   </script>
   {% endblock %}
-
-
+  {% include 'includes/footer.html' %}
 </body>
 
 </html>

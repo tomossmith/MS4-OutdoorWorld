@@ -26,8 +26,25 @@
                         <i class="fab fa-telegram"></i> {{ post.title }}
                     </div>
                     <div class="card-body">
+                        <div class="div">
+                        {% if product.image %}
+                            <a href="{% url 'post_detail' post.id %}">
+                                <img class="card-img-top img-fluid" src="{{ post.image.url }} " alt=" {{ post.title }}">
+                            </a>
+
+                            {% elif product.image_url %}
+                            <a href="{% url 'post_detail' post.id %}">
+                                <img class="card-img-top img-fluid" src="{{ post.image_url }} " alt=" {{ post.title }}">
+                            </a>
+
+                            {% else %}
+                            <a href="{% url 'post_detail' post.id %}">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}base-images/no-image.png" alt="{{ post.title }}">
+                            </a>
+                            {% endif %}
+                        </div>
                     <p class="card-text">{{ post.body|slice:"150" }}</p>
-                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">read more...</a>
+                    <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">read more...</a>
                     </div>
                     <div class="card-footer text-muted">
                     Posted on: {{ post.date_added }}

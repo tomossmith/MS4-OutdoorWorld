@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
@@ -17,9 +18,12 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     template = 'blog/post_detail.html'
     form = CommentForm()
+    comment_count= Comment.objects.all().count()
+    
     context = {
         'post': post,
         'form': form,
+        'comment_count': comment_count
     }
 
     if request.method == 'POST':
@@ -30,13 +34,7 @@ def post_detail(request, post_id):
             comment.post = post
             comment.save()
 
-            context = {
-                'post': post,
-                'form': form,
-                'comment': comment,
-            }
-
-            return render(request, template, context)
+            return redirect(reverse('post_detail', args=[post.id]))
 
     return render(request, template, context)
 
@@ -124,8 +122,9 @@ def delete_comment(request, comment_id):
         messages.error(request, 'Sorry, only the administrator can remove a comment from a post!')
         return redirect(reverse('blog'))
 
-    comment = get_object_or_404(Comment, pk=comment_id)
-    comment.delete()
-    messages.success(request, 'The comment was succesfully deleted!')
+    else:
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment.delete()
+        messages.success(request, 'The comment was succesfully deleted!')
 
-    return redirect(reverse('blog'))
+        return redirect(reverse('blog'))

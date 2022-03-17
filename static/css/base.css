@@ -372,8 +372,9 @@ input[name='q']::placeholder {
 
 /* --------------------------------- Comments CSS */
 
-  
-
+.comment-function-buttons{
+    font-size: 1rem;
+}
 
 
 /* -------------------------------- Media Queries */

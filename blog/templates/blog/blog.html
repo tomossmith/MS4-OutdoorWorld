@@ -38,9 +38,7 @@
                             </a>
 
                             {% else %}
-                            <a href="{% url 'post_detail' post.id %}">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}base-images/no-image.png" alt="{{ post.title }}">
-                            </a>
+                            
                             {% endif %}
                         </div>
                     <p class="card-text">{{ post.body|slice:"150" }}</p>

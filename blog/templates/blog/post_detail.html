@@ -20,27 +20,52 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="card text-center mb-4">
-            <div class="card-header">
-                <h3><i class="fab fa-telegram"></i> {{ post.title }}</h3>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{ post.body }}</p>
+        <div class="col-10">
+            <div class="card text-center mb-4">
+                <div class="card-header">
+                    <h3><i class="fab fa-telegram"></i> {{ post.title }}</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ post.body }}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    Posted on: <i class="far fa-calendar-alt"></i> {{ post.date_added }}
 
-                <div class="row justify-content-center">
-                    <div class="collapse" id="collapseComments">
-                        <div class="card card-body text-left">
-                            {% for comment in post.comments.all %}
-                            <article class="media">
-                                <div class="media-content">
-                                    <div class="content">
-                                        <p>
-                                            <strong><i class="fas fa-comment"></i>{{ comment.name }}</strong>
-                                            <small>{{ comment.date_added }}</small>
-                                            <hr>
-                                            {{ comment.body }}
-                                        </p>
+                    {% if request.user.is_superuser %}
+                    <br>
+                    <small>
+                        <a href="{% url 'edit_post' post.id %}"><i class="far fa-edit"></i>Edit </a>
+                        <span>|</span>
+                        <a class="text-danger" href="{% url 'delete_post' post.id %}"><i class="far fa-trash-alt"></i>
+                            Delete</a>
+                    </small>
+                    {% endif %}
+                    <p class="pt-2">
+                        <button class="btn btn-theme-color" type="button" data-toggle="collapse"
+                            data-target="#collapseComments" aria-expanded="false" aria-controls="collapseComments">
+                            Comments
+                        </button>
+                        <button class="btn btn-theme-color" type="button" data-toggle="collapse"
+                            data-target="#collapseAddComments" aria-expanded="false"
+                            aria-controls="collapseAddComments">
+                            Add Comment
+                        </button>
+                    </p>
+
+                </div>
+                <div class="collapse" id="collapseComments">
+                <div class="row justify-content-center m-4">
+                    <div class="col-10">
+                            <div class="text-left">
+                                {% for comment in post.comments.all %}
+                                <div class="media">
+                                    <i class="fas fa-4x fa-user-circle pull-left p-2"></i>
+                                    <div class="media-body">
+                                        <strong class="media-heading">{{ comment.name }}</strong>
+                                        <p>{{ comment.body }}</p>
+                                        <small><i class="far fa-calendar-alt"></i> {{ comment.date_added }}</small>
                                         {% if request.user.is_superuser %}
+                                        <hr>
                                         <small>
                                             <a class="text-danger" href="{% url 'delete_comment' comment.id %}">
                                                 <i class="far fa-trash-alt"></i> Delete</a>
@@ -48,23 +73,21 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                            </article>
 
+                                {% empty %}
 
-                            {% empty %}
+                                <div class="notification">
+                                    <p>No Comments Yet!</p>
+                                </div>
 
-                            <div class="notification">
-                                <p>No Comments Yet!</p>
+                                {% endfor %}
                             </div>
-
-                            {% endfor %}
                         </div>
                     </div>
                 </div>
-
-                <div class="row justify-content-center">
-                    <div class="collapse" id="collapseAddComments">
-                        <div class="card card-body">
+                <div class="collapse" id="collapseAddComments">
+                <div class="row justify-content-center m-4">
+                    <div class="col-10">
                             <form action="." method="post">
                                 {% csrf_token %}
                                 {{ form.as_p }}
@@ -73,35 +96,13 @@
                                         <button class="btn btn-theme-color is-success">Submit</button>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-footer text-muted">
-                Posted on: {{ post.date_added }}
-
-                {% if request.user.is_superuser %}
-                <small>
-                    <a href="{% url 'edit_post' post.id %}"><i class="far fa-edit"></i>Edit </a>
-                    <span>|</span>
-                    <a class="text-danger" href="{% url 'delete_post' post.id %}"><i class="far fa-trash-alt"></i>
-                        Delete</a>
-                </small>
-                {% endif %}
-                <p>
-                    <button class="btn btn-theme-color" type="button" data-toggle="collapse"
-                        data-target="#collapseComments" aria-expanded="false" aria-controls="collapseComments">
-                        Comments
-                    </button>
-                    <button class="btn btn-theme-color" type="button" data-toggle="collapse"
-                        data-target="#collapseAddComments" aria-expanded="false" aria-controls="collapseAddComments">
-                        Add Comment
-                    </button>
-                </p>
-            </div>
         </div>
     </div>
+</div>
 
 </div>
 </div>

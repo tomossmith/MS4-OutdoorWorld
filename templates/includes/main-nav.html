@@ -6,7 +6,7 @@
                   <li class="list-inline-item dropdown">
                     <a class="nav-link d-block d-lg-none" href="#" id="admin-options" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
-                        <span class="my-0 text-white logo-font font-weight-bold mr-4 letter-spacing-2">Manage Site</span>
+                        <span class="my-0 text-white logo-font font-weight-bold mr-3 letter-spacing-2">Manage Site</span>
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         
@@ -19,7 +19,7 @@
             
           <li class="list-inline-item dropdown">
               <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="my-0 text-white logo-font font-weight-bold mr-4 letter-spacing-2"> My Account</span>
+                    <span class="my-0 text-white logo-font font-weight-bold mr-3 letter-spacing-2"> My Account</span>
               </a>
               <div class="dropdown-menu border-0 mb-0" aria-labelledby="user-options">
                   {% if request.user.is_authenticated %}
@@ -34,12 +34,6 @@
                   {% endif %}
               </div>
           </li>
-         
-
-
-
-
-
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white mr-4 letter-spacing-2" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

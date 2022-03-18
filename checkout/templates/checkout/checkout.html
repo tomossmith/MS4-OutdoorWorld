@@ -21,95 +21,26 @@
     <div class="row d-flex justify-content-center">
         <div class="col">
             <h2 class="page-heading-font text-center">Checkout</h2>
+            <div class="d-sm-block d-md-none text-center text-muted">
+                <p>
+                    {% if product_count == '1' %}
+                    ({{ product_count }}) Item | <strong>£{{ grand_total | floatformat:2 }}</strong>
+
+                    {% else %}
+                    ({{ product_count }}) Items | <strong>£{{ grand_total | floatformat:2 }}</strong>
+
+                    {% endif %}
+                </p>
+            </div>
             <hr>
         </div>
     </div>
     <!----- END Page Title ----->
 
     <div class="row">
-
         <!----- Order Summary ----->
-        <!-- Large Screen -->
-        <div class="col-6 order-lg-last d-sm-none d-md-block">
-            <div id="order-summary-accordion">
-                <div class="card">
-                    <div class="card-header text-white bg-lightblue" id="order-summary-heading">
-                        <h5 class="mb-0">
-                            <button class="btn font-weight-bold text-white" data-toggle="collapse"
-                                data-target="#order-summary-collapse" aria-expanded="true"
-                                aria-controls="order-summary-collapse">
-                                Order Summary ({{ product_count }})
-                            </button>
-                        </h5>
-                    </div>
-
-                    <div id="order-summary-collapse" class="collapse show" aria-labelledby="order-summary-heading"
-                        data-parent="#order-summary-accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-7 offset-2">
-                                    <p class="mb-1 mt-0 small text-muted">Item</p>
-                                </div>
-                                <div class="col-3 text-right">
-                                    <p class="mb-1 mt-0 small text-muted">Subtotal</p>
-                                </div>
-                            </div>
-
-                            {% for item in bag_items %}
-                            <div class="row">
-                                <div class="col-2 mb-1">
-                                    <a href="{% url 'product_detail' item.product.id %}">
-                                        {% if item.product.image %}
-                                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded"
-                                            alt="{{ item.product.name }}">
-                                        {% elif item.product.image_url %}
-                                        <img src="{{ item.product.image_url }}" class="img-fluid rounded"
-                                            alt="{{ item.product.name }}">
-                                        {% else %}
-                                        <img src="{{ MEDIA_URL }}/base-images/no-image.png" class="img-fluid rounded"
-                                            alt="{{ item.product.name }}">
-                                        {% endif %}
-                                    </a>
-                                </div>
-                                <div class="col-7">
-                                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                    <p class="my-0 small"><strong>Size: </strong>
-                                        {% if item.product.has_sizes == 'clothing' %}
-                                        {{ item.size|upper }}
-                                        {% elif item.product.has_sizes == 'footwear' %}
-                                        {{ item.size }}
-                                        {% else %}
-                                        N/A
-                                        {% endif %}</p>
-                                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                                </div>
-                                <div class="col-3 text-right">
-                                    <p class="my-0 small text-muted">
-                                        £{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                                </div>
-                            </div>
-                            {% endfor %}
-                            <hr class="my-0 mt-2 mb-2">
-                            <div class="row text-black text-right">
-                                <div class="col-7 offset-2">
-                                    <p class="my-0">Order Total:</p>
-                                    <p class="my-0">Delivery:</p>
-                                    <p class="my-0 font-weight-bold">Grand Total:</p>
-                                </div>
-                                <div class="col-3">
-                                    <p class="my-0">£{{ total | floatformat:2 }}</p>
-                                    <p class="my-0">£{{ delivery | floatformat:2 }}</p>
-                                    <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Mobile Screen -->
-        <div class="col-12 order-lg-last d-sm-block d-md-none">
+        <div class="col-12 d-md-block d-lg-none">
             <div id="order-summary-accordion">
                 <div class="card">
                     <div class="card-header text-white bg-lightblue" id="order-summary-heading">
@@ -187,6 +118,84 @@
                 </div>
             </div>
         </div>
+
+                <!-- Large Screen -->
+                <div class="col-6 d-md-none d-lg-block order-lg-last">
+                    <div id="order-summary-accordion">
+                        <div class="card">
+                            <div class="card-header text-white bg-lightblue" id="order-summary-heading">
+                                <h5 class="mb-0">
+                                    <button class="btn font-weight-bold text-white" data-toggle="collapse"
+                                        data-target="#order-summary-collapse" aria-expanded="true"
+                                        aria-controls="order-summary-collapse">
+                                        Large Order Summary ({{ product_count }})
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="order-summary-collapse" class="collapse show" aria-labelledby="order-summary-heading"
+                                data-parent="#order-summary-accordion">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-7 offset-2">
+                                            <p class="mb-1 mt-0 small text-muted">Item</p>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                                        </div>
+                                    </div>
+        
+                                    {% for item in bag_items %}
+                                    <div class="row">
+                                        <div class="col-2 mb-1">
+                                            <a href="{% url 'product_detail' item.product.id %}">
+                                                {% if item.product.image %}
+                                                <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded"
+                                                    alt="{{ item.product.name }}">
+                                                {% elif item.product.image_url %}
+                                                <img src="{{ item.product.image_url }}" class="img-fluid rounded"
+                                                    alt="{{ item.product.name }}">
+                                                {% else %}
+                                                <img src="{{ MEDIA_URL }}/base-images/no-image.png" class="img-fluid rounded"
+                                                    alt="{{ item.product.name }}">
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                        <div class="col-7">
+                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                            <p class="my-0 small"><strong>Size: </strong>
+                                                {% if item.product.has_sizes == 'clothing' %}
+                                                {{ item.size|upper }}
+                                                {% elif item.product.has_sizes == 'footwear' %}
+                                                {{ item.size }}
+                                                {% else %}
+                                                N/A
+                                                {% endif %}</p>
+                                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <p class="my-0 small text-muted">
+                                                £{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    <hr class="my-0 mt-2 mb-2">
+                                    <div class="row text-black text-right">
+                                        <div class="col-7 offset-2">
+                                            <p class="my-0">Order Total:</p>
+                                            <p class="my-0">Delivery:</p>
+                                            <p class="my-0 font-weight-bold">Grand Total:</p>
+                                        </div>
+                                        <div class="col-3">
+                                            <p class="my-0">£{{ total | floatformat:2 }}</p>
+                                            <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                                            <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <!----- END Order Summary ----->
 
         <!----- Checkout Form ----->

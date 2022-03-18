@@ -15,29 +15,36 @@ def blog(request):
 
 """ A view to show more of a selected blog post """
 def post_detail(request, post_id):
+    template_name = 'blog/post_detail.html'
     post = get_object_or_404(Post, pk=post_id)
-    template = 'blog/post_detail.html'
-    form = CommentForm()
-    comment_count= Comment.objects.all().count()
-    
+    comments = post.comments.filter(active=True)
+    comment_count = post.comments.filter(active=True).count()
+    new_comment = None
+    # Comment posted
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current post to the comment
+            new_comment.post = post
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
     context = {
         'post': post,
-        'form': form,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form,
+        'on_blog_page': True,
         'comment_count': comment_count
     }
 
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-
-            return redirect(reverse('post_detail', args=[post.id]))
-
-    return render(request, template, context)
-
+    return render(request, template_name, context)
+    
 
 """ A view to to allow an admin to add a blog post """
 @login_required
@@ -52,7 +59,7 @@ def add_post(request):
         if form.is_valid():
             post = form.save()
             form.save()
-            messages.success(request, 'Successfully added Blog Post!')
+            messages.info(request, 'Successfully added Blog Post!')
             return redirect(reverse('post_detail', args=[post.id]))
         else:
             messages.error(request,
@@ -64,6 +71,7 @@ def add_post(request):
     template = 'blog/add_post.html'
     context = {
         'form': form,
+        'on_blog_page': True
     }
 
     return render(request, template, context)
@@ -98,6 +106,7 @@ def edit_post(request, post_id):
     context = {
         'form': form,
         'post': post,
+        'on_blog_page': True
     }
 
     return render(request, template, context)
@@ -111,7 +120,7 @@ def delete_post(request, post_id):
 
     selected_post = get_object_or_404(Post, pk=post_id)
     selected_post.delete()
-    messages.success(request, 'The Post has been deleted!')
+    messages.info(request, 'The Post has been deleted!')
 
     return redirect(reverse('blog'))
 
@@ -125,6 +134,6 @@ def delete_comment(request, comment_id):
     else:
         comment = get_object_or_404(Comment, pk=comment_id)
         comment.delete()
-        messages.success(request, 'The comment was succesfully deleted!')
+        messages.info(request, 'The comment was succesfully deleted!')
 
         return redirect(reverse('blog'))

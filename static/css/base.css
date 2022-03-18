@@ -371,6 +371,11 @@ input[name='q']::placeholder {
     font-weight: 400;
 }
 
+#blog-image {
+    width: 5rem;
+    height: auto;
+} 
+
 /* --------------------------------- Comments CSS */
 
 .comment-function-buttons{

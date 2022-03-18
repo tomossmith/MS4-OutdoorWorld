@@ -27,16 +27,18 @@
                 </div>
                 <div class="card-body">
 
-                {% if post.image %}
-                    <img class="card-img-top img-fluid" src="{{ post.image }} " alt="Image for blog post:{{ post.title }}">
-                    
+                    {% if post.image %}
+                    <img class="card-img-top img-fluid" src="{{ post.image }} "
+                        alt="Image for blog post:{{ post.title }}">
 
-                {% elif post.image_url %}
-                    <img class="card-img-top img-fluid" src="{{ post.image_url }} " alt="Image for blog post:{{ post.title }}">
 
-                {% else %}
+                    {% elif post.image_url %}
+                    <img class="card-img-top img-fluid" src="{{ post.image_url }} "
+                        alt="Image for blog post:{{ post.title }}">
 
-                {% endif %}
+                    {% else %}
+
+                    {% endif %}
 
                     <p class="card-text">{{ post.body }}</p>
                 </div>
@@ -44,17 +46,19 @@
                     Posted on: <i class="far fa-calendar-alt"></i> {{ post.date_added }}
                     <p class="pt-2 comment-function-buttons">
                         <button class="btn btn-theme-color">
-                        <a class="p-1"data-toggle="collapse" data-target="#collapseComments" aria-expanded="false" aria-controls="collapseComments">
-                                {% if comment_count == 1 %}
-                                    {{ comment_count }} Comment <i class="fas fa-comments"></i></a>
-                                {% else %}
-                                    {{ comment_count }} Comments <i class="fas fa-comments"></i></a>
-                                {% endif %}
-                            </button>
-                            <button class="btn btn-theme-color">
-                            <a data-toggle="collapse" data-target="#collapseAddComments" aria-expanded="false" aria-controls="collapseAddComments">
+                            <a class="p-1" data-toggle="collapse" data-target="#collapseComments" aria-expanded="false"
+                                aria-controls="collapseComments">
+                            {% if comment_count == 1 %}
+                                {{ comment_count }} Comment <i class="fas fa-comments"></i></a>
+                            {% else %}
+                                {{ comment_count }} Comments <i class="fas fa-comments"></i></a>
+                            {% endif %}
+                        </button>
+                        <button class="btn btn-theme-color">
+                            <a data-toggle="collapse" data-target="#collapseAddComments" aria-expanded="false"
+                                aria-controls="collapseAddComments">
                                 Add Comment <i class="fas fa-comment-medical p-1"></i></a>
-                            </button>
+                        </button>
                     </p>
 
                     {% if request.user.is_superuser %}
@@ -71,7 +75,7 @@
                     <div class="row justify-content-center m-4">
                         <div class="col-10">
                             <div class="text-left">
-                                {% for comment in post.comments.all %}
+                                {% for comment in comments %}
                                 <div class="media">
                                     <i class="fas fa-4x fa-user-circle pull-left p-2"></i>
                                     <div class="media-body">
@@ -80,9 +84,8 @@
                                         <small><i class="far fa-calendar-alt"></i> {{ comment.date_added }}</small>
                                         {% if request.user.is_superuser %}
                                         <hr>
-                                        <small>
-                                            <a class="text-danger" href="{% url 'delete_comment' comment.id %}">
-                                                <i class="far fa-trash-alt"></i> Delete</a>
+                                        <a class="text-danger" href="{% url 'delete_comment' comment.id %}">
+                                            <i class="far fa-trash-alt"></i> Delete</a>
                                         </small>
                                         {% endif %}
                                     </div>
@@ -91,9 +94,9 @@
                                 {% empty %}
 
                                 <div class="notification">
-                                    <i class="fas fa-comment-slash"></i> <p> No Comments Yet!</p>
+                                    <i class="fas fa-comment-slash"></i>
+                                    <p> No Comments Yet!</p>
                                 </div>
-
                                 {% endfor %}
                             </div>
                         </div>
@@ -101,22 +104,28 @@
                 </div>
                 <div class="collapse" id="collapseAddComments">
                     <div class="justify-content-center m-4">
+                        {% if new_comment %}
+                        <div class="alert alert-success" role="alert">
+                            Your comment is awaiting moderation
+                        </div>
+
+                        {% else %}
                         <i class="far fa-comment-dots mb-4"></i> <strong> Post a comment:</strong></i>
-                            <form id="add_comment" action="." method="post">
-                                {% csrf_token %}
-                                <!--{{ form.as_p }}-->
-                                <p><label for="id_name"></label> <input placeholder="Name:" size="81" type="text" name="name"
-                                        maxlength="255" required="" id="id_name"></p>
-                                <p><label for="id_email"></label> <input placeholder="Email:" size="81" type="email" name="email" maxlength="255"
-                                        required="" id="id_email"></p>
-                                <p><label for="id_body"></label> <textarea placeholder="Comment:" name="body" cols="80" rows="10"
-                                        required="" id="id_body"></textarea></p>
-                                <div class="field">
-                                    <div class="control">
-                                        <button class="btn btn-theme-color is-success">Submit</button>
-                                    </div>
+                        <form id="add_comment" action="." method="post">
+                            {% csrf_token %}
+                            <p><label for="id_name"></label> <input placeholder="Name:" size="81" type="text"
+                                    name="name" maxlength="255" required="" id="id_name"></p>
+                            <p><label for="id_email"></label> <input placeholder="Email:" size="81" type="email"
+                                    name="email" maxlength="255" required="" id="id_email"></p>
+                            <p><label for="id_body"></label> <textarea placeholder="Comment:" name="body" cols="80"
+                                    rows="10" required="" id="id_body"></textarea></p>
+                            <div class="field">
+                                <div class="control">
+                                    <button class="btn btn-theme-color is-success">Submit</button>
                                 </div>
-                            </form>
+                            </div>
+                        </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>

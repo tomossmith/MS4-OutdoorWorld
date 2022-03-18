@@ -405,10 +405,10 @@ input[name='q']::placeholder {
 /* Increase padding when the navbar is collapsed on smaller screens */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 164px;
     }
 
     body {
-        height: calc(100vh - 116px);
+        height: calc(100vh - 164px);
     }
 }

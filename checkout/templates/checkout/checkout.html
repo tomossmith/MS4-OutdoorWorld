@@ -17,133 +17,315 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container mb-4">
+    <!----- Page Title ----->
     <div class="row d-flex justify-content-center">
         <div class="col">
             <h2 class="page-heading-font text-center">Checkout</h2>
             <hr>
         </div>
     </div>
+    <!----- END Page Title ----->
+
     <div class="row">
-        <div class="col-12 col-lg-6 order-lg-last mb-5">
-            <p class="text-muted font-weight-bold">Order Summary ({{ product_count }})</p>
-            <div class="row">
-                <div class="col-7 offset-2">
-                    <p class="mb-1 mt-0 small text-muted">Item</p>
-                </div>
-                <div class="col-3 text-right">
-                    <p class="mb-1 mt-0 small text-muted">Subtotal</p>
-                </div>
-            </div>
-            {% for item in bag_items %}
-            <div class="row">
-                <div class="col-2 mb-1">
-                    <a href="{% url 'product_detail' item.product.id %}">
-                        {% if item.product.image %}
-                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded" alt="{{ item.product.name }}">
-                        {% elif item.product.image_url %}
-                        <img src="{{ item.product.image_url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
-                        {% else %}
-                        <img src="{{ MEDIA_URL }}/base-images/no-image.png" class="img-fluid rounded" alt="{{ item.product.name }}">
-                        {% endif %}
-                    </a>
-                </div>
-                <div class="col-7">
-                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                    <p class="my-0 small"><strong>Size: </strong>
-                        {% if item.product.has_sizes == 'clothing' %}
-                            {{ item.size|upper }} 
-                        {% elif item.product.has_sizes == 'footwear' %}
-                            {{ item.size }}
-                        {% else %}
-                        N/A
-                        {% endif %}</p>
-                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                </div>
-                <div class="col-3 text-right">
-                    <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                </div>
-            </div>
-            {% endfor %}
-            <hr class="my-0 mt-2 mb-2">
-            <div class="row text-black text-right">
-                <div class="col-7 offset-2">
-                    <p class="my-0">Order Total:</p>
-                    <p class="my-0">Delivery:</p>
-                    <p class="my-0 font-weight-bold">Grand Total:</p>
-                </div>
-                <div class="col-3">
-                    <p class="my-0">£{{ total | floatformat:2 }}</p>
-                    <p class="my-0">£{{ delivery | floatformat:2 }}</p>
-                    <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+
+        <!----- Order Summary ----->
+        <!-- Large Screen -->
+        <div class="col-6 order-lg-last d-sm-none d-md-block">
+            <div id="order-summary-accordion">
+                <div class="card">
+                    <div class="card-header text-white bg-lightblue" id="order-summary-heading">
+                        <h5 class="mb-0">
+                            <button class="btn font-weight-bold text-white" data-toggle="collapse"
+                                data-target="#order-summary-collapse" aria-expanded="true"
+                                aria-controls="order-summary-collapse">
+                                Order Summary ({{ product_count }})
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="order-summary-collapse" class="collapse show" aria-labelledby="order-summary-heading"
+                        data-parent="#order-summary-accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-7 offset-2">
+                                    <p class="mb-1 mt-0 small text-muted">Item</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                                </div>
+                            </div>
+
+                            {% for item in bag_items %}
+                            <div class="row">
+                                <div class="col-2 mb-1">
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        {% if item.product.image %}
+                                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded"
+                                            alt="{{ item.product.name }}">
+                                        {% elif item.product.image_url %}
+                                        <img src="{{ item.product.image_url }}" class="img-fluid rounded"
+                                            alt="{{ item.product.name }}">
+                                        {% else %}
+                                        <img src="{{ MEDIA_URL }}/base-images/no-image.png" class="img-fluid rounded"
+                                            alt="{{ item.product.name }}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="col-7">
+                                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                    <p class="my-0 small"><strong>Size: </strong>
+                                        {% if item.product.has_sizes == 'clothing' %}
+                                        {{ item.size|upper }}
+                                        {% elif item.product.has_sizes == 'footwear' %}
+                                        {{ item.size }}
+                                        {% else %}
+                                        N/A
+                                        {% endif %}</p>
+                                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <p class="my-0 small text-muted">
+                                        £{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <hr class="my-0 mt-2 mb-2">
+                            <div class="row text-black text-right">
+                                <div class="col-7 offset-2">
+                                    <p class="my-0">Order Total:</p>
+                                    <p class="my-0">Delivery:</p>
+                                    <p class="my-0 font-weight-bold">Grand Total:</p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="my-0">£{{ total | floatformat:2 }}</p>
+                                    <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                                    <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-6">
-            <p class="text-muted">Please fill out the form below to complete your order</p>
+
+        <!-- Mobile Screen -->
+        <div class="col-12 order-lg-last d-sm-block d-md-none">
+            <div id="order-summary-accordion">
+                <div class="card">
+                    <div class="card-header text-white bg-lightblue" id="order-summary-heading">
+                        <h5 class="mb-0">
+                            <button class="btn font-weight-bold text-white" data-toggle="collapse"
+                                data-target="#order-summary-collapse" aria-expanded="true"
+                                aria-controls="order-summary-collapse">
+                                Order Summary ({{ product_count }})
+                            </button>
+                            <span class="float-right mt-2"><i class="fas fa-angle-double-down float-right"></i></span>
+                        </h5>
+                    </div>
+
+                    <div id="order-summary-collapse" class="collapse show" aria-labelledby="order-summary-heading"
+                        data-parent="#order-summary-accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-7 offset-2">
+                                    <p class="mb-1 mt-0 small text-muted">Item</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                                </div>
+                            </div>
+
+                            {% for item in bag_items %}
+                            <div class="row">
+                                <div class="col-2 mb-1">
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        {% if item.product.image %}
+                                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" class="img-fluid rounded"
+                                            alt="{{ item.product.name }}">
+                                        {% elif item.product.image_url %}
+                                        <img src="{{ item.product.image_url }}" class="img-fluid rounded"
+                                            alt="{{ item.product.name }}">
+                                        {% else %}
+                                        <img src="{{ MEDIA_URL }}/base-images/no-image.png" class="img-fluid rounded"
+                                            alt="{{ item.product.name }}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="col-7">
+                                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                    <p class="my-0 small"><strong>Size: </strong>
+                                        {% if item.product.has_sizes == 'clothing' %}
+                                        {{ item.size|upper }}
+                                        {% elif item.product.has_sizes == 'footwear' %}
+                                        {{ item.size }}
+                                        {% else %}
+                                        N/A
+                                        {% endif %}</p>
+                                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <p class="my-0 small text-muted">
+                                        £{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <hr class="my-0 mt-2 mb-2">
+                            <div class="row text-black text-right">
+                                <div class="col-7 offset-2">
+                                    <p class="my-0">Order Total:</p>
+                                    <p class="my-0">Delivery:</p>
+                                    <p class="my-0 font-weight-bold">Grand Total:</p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="my-0">£{{ total | floatformat:2 }}</p>
+                                    <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                                    <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----- END Order Summary ----->
+
+        <!----- Checkout Form ----->
+        <div id="accordion" class="col-12 col-lg-6">
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small font-weight-bold text-black px-2 w-auto">Details</legend>
-                    {{ order_form.full_name | as_crispy_field }}
-                    {{ order_form.email | as_crispy_field }}
-                </fieldset>
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small font-weight-bold text-black px-2 w-auto">Delivery</legend>
-                    {{ order_form.phone_number | as_crispy_field }}
-                    {{ order_form.street_address1 | as_crispy_field }}
-                    {{ order_form.street_address2 | as_crispy_field }}
-                    {{ order_form.town_or_city | as_crispy_field }}
-                    {{ order_form.county | as_crispy_field }}
-                    {{ order_form.postcode | as_crispy_field }}
-                    {{ order_form.country | as_crispy_field }}
-                    <div class="form-check form-check-inline float-right mr-0">
-                        {% if user.is_authenticated %}
-                        <label for="id-save-info" class="form-check-label">Save this delivery information to my
-                            profile</label>
-                        <input type="checkbox" id="id-save-info" name="save-info" class="form-check-input ml-2 mr-0"
-                            checked>
-                        {% else %}
-                        <label for="id-save-info" class="form-check-label">
-                            <a href="{% url 'account_signup' %}" class="text-info">Create an account</a> or
-                            <a href="{% url 'account_login' %}" class="text-info">login </a> to save this information
-                        </label>
-                        {% endif %}
+                <div class="card">
+                    <div class="card-header bg-lightblue" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn text-white font-weight-bold" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+                                type="button">
+                                Order Details
+                            </button>
+                        </h5>
                     </div>
-                </fieldset>
-                <fieldset class="px-3">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                    <!-- A Stripe card element will go here -->
-                    <div class="mb-3" id="card-element"></div>
-                    <!-- Used to display form errors -->
-                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                    <!-- Pass the client secret to the view so we can get the payment intent id-->
-                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                </fieldset>
 
-                <!-- Submit Button -->
-                <div class="submit-button text-right mt-5 mb-2">
-                    <a href="{% url 'view_bag' %}" class="btn btn-outline-theme-color rounded-0">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="font-weight-bold">Adjust Bag</span>
-                    </a>
-                    <button id="submit-button" class="btn btn-theme-color rounded-0">
-                        <span class="font-weight-bold">Complete Order</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
-                    <p class="small text-danger my-0">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
-                    </p>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <fieldset class="rounded">
+                                <legend class="fieldset-label small font-weight-bold text-black px-2 w-auto">
+                                </legend>
+                                {{ order_form.full_name | as_crispy_field }}
+                                {{ order_form.email | as_crispy_field }}
+                            </fieldset>
+                            <button class="btn btn-theme-color rounded-0 mb-3 float-right" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"
+                                type="button">
+                                <span class="font-weight-bold">Next</span>
+                                <span class="icon">
+                                    <i class="fas fa-angle-double-down"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-lightblue" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn text-white font-weight-bold collapsed" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                                type="button">
+                                Delivery Information
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <fieldset class="rounded">
+                                <legend class="fieldset-label small font-weight-bold text-blackw-auto">Delivery
+                                </legend>
+                                {{ order_form.phone_number | as_crispy_field }}
+                                {{ order_form.street_address1 | as_crispy_field }}
+                                {{ order_form.street_address2 | as_crispy_field }}
+                                {{ order_form.town_or_city | as_crispy_field }}
+                                {{ order_form.county | as_crispy_field }}
+                                {{ order_form.postcode | as_crispy_field }}
+                                {{ order_form.country | as_crispy_field }}
+                                <div class="form-check form-check-inline float-right mr-0 mb-2">
+                                    {% if user.is_authenticated %}
+                                    <label for="id-save-info" class="form-check-label">Save this delivery
+                                        information to
+                                        my
+                                        profile</label>
+                                    <input type="checkbox" id="id-save-info" name="save-info"
+                                        class="form-check-input ml-2 mr-0" checked>
+                                    {% else %}
+                                    <label for="id-save-info" class="form-check-label">
+                                        <a href="{% url 'account_signup' %}" class="text-info">Create an account</a>
+                                        or
+                                        <a href="{% url 'account_login' %}" class="text-info">login </a> to save
+                                        this
+                                        information
+                                    </label>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+                            <button class="btn btn-theme-color rounded-0 mb-3 float-right" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree"
+                                type="button">
+                                <span class="font-weight-bold">Next</span>
+                                <span class="icon">
+                                    <i class="fas fa-angle-double-down"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-lightblue" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn text-white font-weight-bold collapsed" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                                type="button">
+                                Payment
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <fieldset>
+                                <legend class="fieldset-label small text-black w-auto">Payment</legend>
+                                <!-- A Stripe card element will go here -->
+                                <div class="mb-3" id="card-element"></div>
+                                <!-- Used to display form errors -->
+                                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                                <!-- Pass the client secret to the view so we can get the payment intent id-->
+                                <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                            </fieldset>
+
+                            <!----- Submit Button ----->
+                            <div class="submit-button text-right mt-2 mb-2">
+                                <a href="{% url 'view_bag' %}" class="btn btn-outline-theme-color rounded-0">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="font-weight-bold">Adjust Bag</span>
+                                </a>
+                                <button id="submit-button" class="btn btn-theme-color rounded-0" type="submit">
+                                    <span class="font-weight-bold">Complete Order</span>
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </button>
+                                <p class="small text-danger my-0">
+                                    <span class="icon">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </span>
+                                    <span>Your card will be charged
+                                        <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
+    <!----- END Checkout Form ----->
 </div>
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">

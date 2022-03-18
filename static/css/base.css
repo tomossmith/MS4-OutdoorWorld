@@ -38,6 +38,10 @@ body {
     text-shadow: 2px 2px 4px #000000;
 }
 
+.text-lightblue {
+    color: #5274d9;
+}
+
 .bg-lightblue {
     background-color: #5274d9;
 }
@@ -52,10 +56,6 @@ body {
 
 .bg-black-opacity {
     background-color: #0000007a;
-}
-
-#delivery-banner{
-    background-color: #000 !important;
 }
 
 .letter-spacing-2 {
@@ -99,11 +99,11 @@ body {
     font-family: 'Bebas Neue', cursive;
     font-size: 3rem;
     text-transform: uppercase;
-    color: #375CA6 !important;
+    color: #5274d9 !important;
 }
 
 .border-theme-color {
-    border: 1px solid #375CA6!important;
+    border: 1px solid #5274d9 !important;
 }
 
 .overlay {
@@ -117,7 +117,7 @@ body {
 }
 
 a.category-badge > span.badge:hover {
-    background: #375CA6 !important;
+    background: #5274d9 !important;
     color: red !important;
 }
 
@@ -182,14 +182,14 @@ a.category-badge > span.badge:hover {
     bottom: 10px;
     right: 10px;
     color: #A8D977;
-    background-color: #375CA6;
+    background-color: #5274d9;
     border: 2px solid #A8D977;
     border-radius:50%;
 }
 
 .button-outline-theme-color {
     background: white;
-    color: #375CA6 !important;
+    color: #5274d9 !important;
     border: 1px solid black;
 }
 
@@ -237,7 +237,7 @@ input[name='q']::placeholder {
 
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
-    border-bottom-color: #375CA6 !important;
+    border-bottom-color: #5274d9 !important;
 }
 
 .arrow-secondary {

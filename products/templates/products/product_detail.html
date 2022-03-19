@@ -17,12 +17,13 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ product.image }} " alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                 </a>
+                {{ MEDIA_URL }}{{ product.image }}
 
                 {% elif product.image_url %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top img-fluid" src="{{ product.image_url }} " alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
                 </a>
 
                 {% else %}
@@ -61,7 +62,7 @@
                         {% if product.has_sizes == 'clothing' %}
                         <div class="col-12">
                             <p><strong>Size:</strong></p>
-                            <select name="product_size" id="id_product_size" class="form-control rounded-0 w-50">
+                            <select name="product_size" id="id_product_size" required class="form-control rounded-0 w-50">
                                 <option value="" selected disabled>-</option>
                                 <option value="xs">XS</option>
                                 <option value="s">S</option>
@@ -75,7 +76,7 @@
                         {% elif product.has_sizes == 'footwear' %}
                         <div class="col-12">
                             <p><strong>Size:</strong></p>
-                            <select name="product_size" id="id_product_size" class="form-control rounded-0 w-50">
+                            <select name="product_size" id="id_product_size" required class="form-control rounded-0 w-50">
                                 <option value="" selected disabled>-</option>
                                 <option value="1">UK 1</option>
                                 <option value="2">UK 2</option>

@@ -8,10 +8,16 @@ html {
 body {
     background: url('/media/base-images/homepage-hero.png') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height:100%;
     color: #555;
     font-family: 'Montserrat';
     margin-top: 1rem;
+    position:relative; 
+}
+
+#footer {
+    position: relative; 
+    bottom: 0; 
 }
 
 .bebas {

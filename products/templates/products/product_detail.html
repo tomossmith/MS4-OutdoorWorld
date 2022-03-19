@@ -17,7 +17,8 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ product.image }}"
+                        alt="{{ product.name }}">
                 </a>
                 {{ MEDIA_URL }}{{ product.image }}
 
@@ -58,11 +59,13 @@
 
                 <form action="{% url 'add_to_bag' product.id %}" method="POST" class="form">
                     {% csrf_token %}
-                    <div class="form-row">
+                    <hr>
+                    <div class="form-row mt-3">
                         {% if product.has_sizes == 'clothing' %}
                         <div class="col-12">
                             <p><strong>Size:</strong></p>
-                            <select name="product_size" id="id_product_size" required class="form-control rounded-0 w-50">
+                            <select name="product_size" id="id_product_size" required
+                                class="form-control rounded-0 w-50">
                                 <option value="" selected disabled>-</option>
                                 <option value="xs">XS</option>
                                 <option value="s">S</option>
@@ -76,7 +79,8 @@
                         {% elif product.has_sizes == 'footwear' %}
                         <div class="col-12">
                             <p><strong>Size:</strong></p>
-                            <select name="product_size" id="id_product_size" required class="form-control rounded-0 w-50">
+                            <select name="product_size" id="id_product_size" required
+                                class="form-control rounded-0 w-50">
                                 <option value="" selected disabled>-</option>
                                 <option value="1">UK 1</option>
                                 <option value="2">UK 2</option>
@@ -126,10 +130,10 @@
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <button class="btn btn-theme-color text-white rounded-5 text-uppercase mt-3"
                                 type="submit"><i class="fas fa-cart-plus"></i> Add To Bag</button>
-                            <a href="{% url 'products' %}" class="btn btn-theme-color rounded-5 mt-3">
+                            <button href="{% url 'products' %}" class="btn btn-theme-color rounded-5 mt-3">
                                 <span class="text-white text-uppercase"><i class="fas fa-store"></i> Keep
                                     Shopping</span>
-                            </a>
+                            </button>
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>

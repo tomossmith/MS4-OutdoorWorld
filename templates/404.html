@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col">
+            <h2 class="page-heading-font text-center">404 Error!</h2>
+            <hr>
+        </div>
+    </div>
+
+    <h3 class="text-center">
+        Sorry, your request caused an error!
+    </h3>
+
+    <div class="text-center">
+        <button class="btn btn-theme-color rounded-0" href="{% url 'home' %}"><i class="fas fa-window-close"></i> Return To Home</button>
+    </div>
+        
+</div>
+{% endblock %}
+

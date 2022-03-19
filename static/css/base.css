@@ -312,8 +312,8 @@ input[name='q']::placeholder {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: #5274d9;
+    border: 1px solid #5274d9;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -326,12 +326,11 @@ input[name='q']::placeholder {
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
-    background-color: #222;
-    border-color: #222;
+    background-color: #375CA6;
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: #375CA6; /* text-info */
 }
 
 /* -------------------------------- Custom Product Form */

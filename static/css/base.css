@@ -6,13 +6,22 @@ html {
 }
 
 body {
-    background: url('/media/base-images/homepage-hero.png') no-repeat center center fixed;
-    background-size: cover;
     height:100%;
     color: #555;
     font-family: 'Montserrat';
     margin-top: 1rem;
     position: relative;
+}
+
+.hero-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: url('/media/base-images/homepage-hero.png') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
 }
 
 .bebas {

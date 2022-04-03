@@ -12,12 +12,7 @@ body {
     color: #555;
     font-family: 'Montserrat';
     margin-top: 1rem;
-    position:relative; 
-}
-
-#footer {
-    position: relative; 
-    bottom: 0; 
+    position: relative;
 }
 
 .bebas {

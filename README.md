@@ -100,33 +100,27 @@ p {
 |---|---|---|---|
 |<strong>A. Viewing & Navigation</strong>|
 |A1|All Users | See that they have landed on the correct site they intended to visit.| To reassure users they have arrived at the correct store.|
-|A |All Users | Understand the purpose and reason for the store.| To keep the interest of the users.|
-|A |All Users | Be able to view the website correctly on any device.|Browse the store fully without missing out on content or having a negative experience|
-|A |All Users | Find the business's social links| To engage with the business's social media pages and share the website with friends.|
-|A |Shopper | See all the products available| To find suitable products to purchase|
-|A |Shopper | Easily navigate categories of different products| To display a narrower selection of products they are interested in buying|
-|A |Shopper | See the value of the items in the basket| To see how much they have spent|
-|A |Shopper | Filter or See clearly any special offers that the site may have| To make savings on purchases|
-|A |Site User | Easily locate the login link.| Returning users are able to have access to their accounts without navigating multiple pages.|
-
+|A2|All Users | Understand the purpose and reason for the store.| To keep the interest of the users.|
+|A3|All Users | Be able to view the website correctly on any device.|Browse the store fully without missing out on content or having a negative experience|
+|A4|All Users | Find the business's social links| To engage with the business's social media pages and share the website with friends.|
+|A5|Shopper | See all the products available| To find suitable products to purchase|
+|A6|Shopper | Easily navigate categories of different products| To display a narrower selection of products they are interested in buying|
+|A7|Shopper | See the value of the items in the basket| To see how much they have spent|
+|A8|Shopper | Filter or See clearly any special offers that the site may have| To make savings on purchases|
+|A9|Site User | Easily locate the login link.| Returning users are able to have access to their accounts without navigating multiple pages.|
 |<strong>B. Registration & User Accounts</strong>|
-|B1|Site User| Register for an account|To store information about purchases, addresses and payment |
-|B2|Site User| Login/Logout of their account| Access account information and be able to logout to prevent other users viewing this information.   |
-|B3|Site User| See  a list of previous orders made|To view previously purchased items |
-|B4|Site User| Personal user account| To store addresses/payment information|
-|B5|Site User| Login using social accounts| Quick and convenient way to login|
-
-|<strong>C. Sorting & Searching</strong>|
-|<strong>D. Purchasing & Checkout</strong>|
-
-
-    - The website administrator must be able to find the administrator tools when logged into the site.
-
-    - The website administrator must not be able to delete the main administrator account from the database.
-
-    - The website administrator must be able to create, remove, update and delete products.
-
-    - The website administrator must be the only users to have access to the restricted websites and non-administrators must not be able to access restricted sites by direct URL inputs.
+|B1|Site User | Register for an account| To store information about purchases, addresses and payment|
+|B2|Site User | Login/Logout of their account| Access account information and be able to logout to prevent other users viewing this information.|
+|B3|Site User | See a list of previous orders made| To view previously purchased items|
+|B4|Site User | Personal user account| To store addresses/payment information|
+|B5|Site User | Login using social accounts| Quick and convenient way to login|
+|<strong>C. Purchasing & Checkout</strong>|
+|C1|Shopper | Use a secure payment gateway| To make sure the transactions processed in the store are secure for both user and store.|
+|C2|Shopper | Store payment details to the account| To help speed up the checkout process during the next order.|
+|<strong>D. Store Administration</strong>|
+|D1|Store Administrator | Find administrator tools when logged in| To easily find the administrator tools section|
+|D2|Store Administrator | To create, remove and update and delete products & blog posts.| To manage and update the store|
+|D3|All Users | Administrator tools must only be visible to users with administrator privilidges| To make sure the store can only be managed by authorised personnel.|
 
 ## <span id="ux-design"><b>Design</b></span>
 
@@ -149,9 +143,7 @@ p {
     
     [Adobe Color](https://color.adobe.com/) also helps ensure that the colors are compatible together.
 
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ CONTRAST SCORING @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-    <img src="" alt="Color Palette" width="50%">
+    <img src="static/readme-images/ow-colorscheme.png" alt="Color Palette" width="50%">
 
 * ### <span id="ux-design-typography"><b>Typography</b></span>
 
@@ -161,13 +153,11 @@ p {
 
     The logo font is [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue)
 
-    <img src="" alt="Image of the Bebas Neue Font @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" width="30%">
-
-    This is the font @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <img src="static/readme-images/fonts/font-bebasneue.png" alt="Image of the Bebas Neue Font" width="30%">
 
     The secondary font is [Montserrat](https://fonts.google.com/specimen/Montserrat)
 
-    <img src="" alt="Image of the @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Font" width="30%">
+    <img src="static/readme-images/fonts/font-montserrat.png" alt="Image of the Montserrat Font" width="30%">
 
     This font is used as the font for all key information of the product descriptions and checkout information etc. making sure the large blocks of text are easy to read.
 
@@ -179,17 +169,56 @@ p {
 * ### <span id="ux-design-structure"><b>Structure & Mockup Designs</b></span>
 
 
-    <h3> Homepage </h3>
-    <img src="" alt="Wireframe image for the Homepage" width="100%">
-    
-    <br>
-    <h3> Registration Page </h3>
-    <img src="" alt="Wireframe image for the Registration page" width="100%">
+    <h3>Homepage </h3>
+    <img src="static/readme-images/wireframes/wireframe-index.png" alt="Outdoor World Index Page Wireframe" width="80%">
 
     <br>
-    <h3> Login Page </h3>
-    <img src="" alt="Wireframe image for the Login page" width="100%">
+    <h3>Registration Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-registration.png" alt="Outdoor World Registration Page Wireframe" width="80%">
 
+    <br>
+    <h3>Login Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-login.png" alt="Outdoor World Registration Page Wireframe" width="80%">
+
+    <br>
+    <h3>Footer Template </h3>
+    <img src="static/readme-images/wireframes/wireframe-footer.png" alt="Outdoor World Footer Wireframe" width="80%">
+
+    <br>
+    <h3> Product Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-product-page.png" alt="Outdoor World Product Page Wireframe" width="80%">
+
+    <br>
+    <h3> Category Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-category-page.png" alt="Outdoor World Category Page Wireframe" width="80%">
+
+    <br>
+    <h3> Cart Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-cart.png" alt="Outdoor World Cart Wireframe" width="80%">
+
+    <br>
+    <h3> Checkout Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-checkout.png" alt="Outdoor World Checkout Page Wireframe" width="80%">
+
+    <br>
+    <h3> Admin - Add Product Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-admin-add-product.png" alt="Outdoor World Add Product Page Wireframe" width="80%">
+
+    <br>
+    <h3>Blog Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-blog.png" alt="Outdoor World Blog Page Wireframe" width="80%">
+
+    <br>
+    <h3>Admin - Add Blog Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-admin-add-blog.png" alt="Outdoor World Add Blog Page Wireframe" width="80%">
+
+    <br>
+    <h3>Contact Page </h3>
+    <img src="static/readme-images/wireframes/wireframe-contact.png" alt="Outdoor World Add Contact Page Wireframe" width="80%">
+
+    <br>
+    <h3>User Access Structure </h3>
+    <img src="static/readme-images/wireframes/wireframe-user-access-structure.png" alt="Outdoor World User Access Structure" width="80%">
 <br>
 
 * ### <span id="ux-design-amendments"><b>Amendments To Mockup Designs During Development</b></span>
@@ -204,7 +233,12 @@ p {
 
     * #### <b>Navigation Menu Based On User Level</b>
 
-        <img src="" alt="Wireframe image for the navigation bars based on user access." width="100%">
+
+        <h3>Standard Navigation Menu</h3>
+        <img src="static/readme-images/nav-menu/nav-menu-standard.png" alt="Wireframe image for the navigation bars based on user access." width="100%">
+
+        <h3>Administrator Navigation Menu</h3>
+        <img src="static/readme-images/nav-menu/nav-menu-admin.png" alt="Wireframe image for the navigation bars based on user access." width="100%">
 
     * #### <b>Dynamically Created Navigation Menu Dropdown</b>
 

@@ -78,7 +78,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required by allauth
+                # required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -215,7 +216,7 @@ STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 # SMTP Settings
 
 CONTACT_EMAIL = 'outdoorworldms4@gmail.com'
-ADMIN_EMAIL = ['outdoorworldms4@gmail.com',]
+ADMIN_EMAIL = ['outdoorworldms4@gmail.com', ]
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -229,5 +230,3 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     DEFAULT_TO_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
-    

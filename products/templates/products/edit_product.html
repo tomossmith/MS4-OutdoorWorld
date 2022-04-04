@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -19,19 +19,22 @@
         </div>
     </div>
 
-        <div class="row d-flex justify-content-center">
-            <div class="col-10">
-                <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {{ field | as_crispy_field }}
-                    {% endfor %}
-                    <div class="row justify-content-center">
-                        <a class="btn btn-red rounded-0 mr-1" href="{% url 'products' %}"><i class="fas fa-window-close"></i> Cancel</a>
-                        <button class="btn btn-theme-color rounded-0" type="submit"><i class="fas fa-edit"></i> Edit Product</button>
-                    </div>
-                </form>
-            </div>            
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                {{ field | as_crispy_field }}
+                {% endfor %}
+                <div class="row justify-content-center">
+                    <a class="btn btn-red rounded-0 mr-1" href="{% url 'products' %}"><i
+                            class="fas fa-window-close"></i> Cancel</a>
+                    <button class="btn btn-theme-color rounded-0" type="submit"><i class="fas fa-edit"></i> Edit
+                        Product</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 {% endblock %}

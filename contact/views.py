@@ -1,13 +1,13 @@
-from django.shortcuts import render, redirect, reverse
+""" Contact app Views """
+from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import Contact
 from .forms import ContactForm
 
 
 def contact(request):
-    """ contact form """
+    """ Contact form """
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
@@ -23,9 +23,11 @@ def contact(request):
                 settings.EMAIL_HOST_USER, [email], fail_silently=True
             )
 
-            messages.success(request, 'Successfully sent message, a member of our team will reply as soon as possible.')
+            messages.success(
+                request, 'Successfully sent message, a member of \
+                    our team will reply as soon as possible.')
 
-            template = 'home/index.html'            
+            template = 'home/index.html'
             return render(request, template)
         else:
             messages.error(request,

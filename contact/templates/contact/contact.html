@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -24,13 +24,14 @@
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-center">
-                    <a class="btn btn-red rounded-0" href="{% url 'home' %}"><i class="fas fa-window-close"></i> Cancel</a>
-                    <button class="btn btn-theme-color rounded-0" type="submit"><i class="fas fa-paper-plane"> </i> Send Message</button>
+                    <a class="btn btn-red rounded-0" href="{% url 'home' %}"><i class="fas fa-window-close"></i>
+                        Cancel</a>
+                    <button class="btn btn-theme-color rounded-0" type="submit"><i class="fas fa-paper-plane"> </i> Send
+                        Message</button>
                 </div>
             </form>
-        </div>            
+        </div>
     </div>
-        
+
 </div>
 {% endblock %}
-

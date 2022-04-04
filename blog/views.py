@@ -1,20 +1,21 @@
+""" Views for the blog app """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Count
 
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
-""" A view to show all the blog posts. """
+
 def blog(request):
+    """ A view to show all the blog posts. """
     posts = Post.objects.all()
 
     return render(request, 'blog/blog.html', {'posts': posts})
 
 
-""" A view to show more of a selected blog post """
 def post_detail(request, post_id):
+    """ A view to show more of a selected blog post """
     template_name = 'blog/post_detail.html'
     post = get_object_or_404(Post, pk=post_id)
     comments = post.comments.filter(active=True)
@@ -44,14 +45,14 @@ def post_detail(request, post_id):
     }
 
     return render(request, template_name, context)
-    
 
-""" A view to to allow an admin to add a blog post """
+
 @login_required
 def add_post(request):
+    """ A view to to allow an admin to add a blog post """
     if not request.user.is_superuser:
-        messages.error(request,
-                       'Sorry, only administrators can add a blog post')
+        messages.error(
+            request, 'Sorry, only administrators can add a blog post')
         return redirect(reverse('blog'))
 
     if request.method == 'POST':
@@ -77,9 +78,9 @@ def add_post(request):
     return render(request, template, context)
 
 
-""" A view to to allow an admin to edit a blog post """
 @login_required
 def edit_post(request, post_id):
+    """ A view to to allow an admin to edit a blog post """
     if not request.user.is_superuser:
         messages.error(request,
                        'Sorry, only the admin can edit a blog post')
@@ -111,11 +112,13 @@ def edit_post(request, post_id):
 
     return render(request, template, context)
 
-""" A view to to allow an admin to delete a blog post """
+
 @login_required
 def delete_post(request, post_id):
+    """ A view to to allow an admin to delete a blog post """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only the administrator can remove a blog post.')
+        messages.error(
+            request, 'Sorry, only the administrator can remove a blog post.')
         return redirect(reverse('blog'))
 
     selected_post = get_object_or_404(Post, pk=post_id)
@@ -124,11 +127,14 @@ def delete_post(request, post_id):
 
     return redirect(reverse('blog'))
 
-""" A view to to allow an admin to delete a comment on a post """
+
 @login_required
 def delete_comment(request, comment_id):
+    """ A view to to allow an admin to delete a comment on a post """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only the administrator can remove a comment from a post!')
+        messages.error(
+            request, 'Sorry, only the administrator \
+            can remove a comment from a post!')
         return redirect(reverse('blog'))
 
     else:

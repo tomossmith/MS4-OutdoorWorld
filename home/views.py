@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.conf import settings
+""" Homepage Views """
+from django.shortcuts import render
 
 
 def index(request):

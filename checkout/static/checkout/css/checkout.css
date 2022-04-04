@@ -22,18 +22,18 @@
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+  color: #aab7c4;
 }
 
 .fieldset-label {
-    position: relative;
-    right: .5rem;
+  position: relative;
+  right: .5rem;
 }
 
 #payment-form .form-control,
 #card-element {
-    color: #000;
-    border: 1px solid #000;
+  color: #000;
+  border: 1px solid #000;
 }
 
 select,
@@ -47,8 +47,8 @@ select option [value=""] {
 }
 
 #loading-overlay {
-	display: none;
-	position: fixed;
+  display: none;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -58,7 +58,7 @@ select option [value=""] {
 }
 
 .loading-spinner {
-	display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;

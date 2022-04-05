@@ -1,11 +1,13 @@
-""" Homepage tests """
+""" Homepage - tests.py """
 from django.urls import reverse
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 
 
 class WelcomeViewTestCase(TestCase):
-    """ setup information to run test """
+    """
+    setup information to run test
+    """
     def setUp(self):
         self.username = "user"
         self.password = "valid_password1"
@@ -16,7 +18,9 @@ class WelcomeViewTestCase(TestCase):
             self.username, "email@test.com", self.password)
 
     def test_home_sends_user_to_login(self):
-        """ Test to run homepage and search for chosen text """
+        """
+        Test to run homepage and search for chosen text
+        """
         response = self.client.get(self.url)
 
         self.assertEqual(response.status_code, 200)

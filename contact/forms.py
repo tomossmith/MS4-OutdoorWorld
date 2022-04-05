@@ -1,12 +1,15 @@
-""" Contact forms.py """
+""" Contact App - forms.py """
 from django import forms
-
 from .models import Contact
 
 
 class ContactForm(forms.ModelForm):
-    """ Contact submit form """
+    """
+    Contact submit form
+    """
     class Meta:
-        """ Contact form fields """
+        """
+        Contact form fields
+        """
         model = Contact
         fields = '__all__'

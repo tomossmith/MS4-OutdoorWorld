@@ -1,4 +1,4 @@
-""" Checkout app views """
+""" Checkout App - views.py """
 import json
 import stripe
 from django.shortcuts import render, redirect, \
@@ -10,14 +10,15 @@ from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
-
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
 
 @require_POST
 def cache_checkout_data(request):
-    """ Stores checkout and bag information in the cache """
+    """
+    Stores checkout and bag information in the cache
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -34,7 +35,9 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    """ Process the checkout form """
+    """
+    Process the checkout form
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 

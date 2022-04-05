@@ -1,12 +1,16 @@
-""" Checkout app forms """
+""" Checkout App - forms.py """
 from django import forms
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
-    """ Order form configurations """
+    """
+    Order form configurations
+    """
     class Meta:
-        """ Order form fields """
+        """
+        Order form fields
+        """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',

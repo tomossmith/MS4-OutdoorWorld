@@ -1,4 +1,4 @@
-""" Product app URL Paths """
+""" Products App - urls.py """
 from django.urls import path
 from . import views
 

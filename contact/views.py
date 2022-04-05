@@ -1,4 +1,4 @@
-""" Contact app Views """
+""" Contact App - views.py """
 from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -7,7 +7,9 @@ from .forms import ContactForm
 
 
 def contact(request):
-    """ Contact form """
+    """
+    Contact form
+    """
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():

@@ -1,4 +1,4 @@
-""" URL paths for the checkout app """
+""" Checkout App - urls.py """
 from django.urls import path
 from . import views
 from .webhooks import webhook

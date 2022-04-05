@@ -1,4 +1,4 @@
-""" Products app Widgets.py """
+""" Products App - widgets.py """
 from django.forms.widgets import ClearableFileInput
 from django.utils.translation import gettext_lazy as _
 

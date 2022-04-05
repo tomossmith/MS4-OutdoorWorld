@@ -1,8 +1,10 @@
-""" Blog App Config """
+""" Blog App - apps.py """
 from django.apps import AppConfig
 
 
 class BlogConfig(AppConfig):
-    """ Configuration for the Blog App """
+    """
+    Configuration for the Blog App
+    """
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'blog'

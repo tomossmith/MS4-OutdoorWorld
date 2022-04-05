@@ -1,9 +1,11 @@
-""" Checkout app apps.py """
+""" Checkout App - apps.py """
 from django.apps import AppConfig
 
 
 class CheckoutConfig(AppConfig):
-    """ Checkout config """
+    """
+    Checkout config
+    """
     name = 'checkout'
 
     def ready(self):

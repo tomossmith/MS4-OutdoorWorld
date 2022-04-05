@@ -1,9 +1,11 @@
-""" Imports Blog app models """
+""" Blog App - models.py """
 from django.db import models
 
 
 class Post(models.Model):
-    """ Create a blog post """
+    """
+    Create a blog post
+    """
     title = models.CharField(max_length=255)
     body = models.TextField()
     image_url = models.URLField(max_length=1024, null=True, blank=True)
@@ -11,12 +13,16 @@ class Post(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        """ set the order to display the post """
+        """
+        set the order to display the post
+        """
         ordering = ['-date_added']
 
 
 class Comment(models.Model):
-    """ Submit a comment to a post """
+    """
+    Submit a comment to a post
+    """
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=255)
@@ -26,7 +32,9 @@ class Comment(models.Model):
     active = models.BooleanField(default=False)
 
     class Meta:
-        """ set the order in which comments should be displayed """
+        """
+        Set the order in which comments should be displayed
+        """
         ordering = ['date_added']
 
     def __str__(self):

@@ -1,21 +1,27 @@
-""" Products app Models """
+""" Products App - models.py """
 from django.db import models
 
 
 class Category(models.Model):
-    """ Product Category Models """
+    """
+    Product Category Models
+    """
     class Meta:
-        """ Categories Fields """
+        """
+        Categories Fields
+        """
         verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
-    # def __str__(self):
-    # return self.name
+    def __str__(self):
+        return self.name
 
     def get_friendly_name(self):
-        """ Product Friendly Names """
+        """
+        Product Friendly Names
+        """
         return self.friendly_name
 
 
@@ -27,7 +33,9 @@ SIZE_CHOICES = [
 
 
 class Product(models.Model):
-    """ Product Fields """
+    """
+    Product Fields
+    """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
@@ -40,5 +48,5 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
-   # def __str__(self):
-    # return self.name
+    def __str__(self):
+        return self.name

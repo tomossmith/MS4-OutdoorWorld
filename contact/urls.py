@@ -1,4 +1,4 @@
-""" Contact app URL paths """
+""" Contact App - urls.py """
 from django.urls import path
 from . import views
 

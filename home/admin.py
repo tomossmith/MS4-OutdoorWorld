@@ -1,2 +1,2 @@
-""" Homepage Admin.py """
+""" Homepage - admin.py """
 from django.contrib import admin

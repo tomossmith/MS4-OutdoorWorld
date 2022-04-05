@@ -4,14 +4,15 @@
 <html lang="en">
 
 <head>
-
   {% block meta %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="A outdoor activity online store, selling all the equipment you need to go on your next Adventure!">
+  <meta name="description"
+    content="A outdoor activity online store, selling all the equipment you need to go on your next Adventure!">
   {% endblock %}
 
   {% block extra_meta %}
+  <link rel="icon" href="/media/base-images/favicon.ico" sizes="32x32">
   {% endblock %}
 
   {% block corecss %}
@@ -30,7 +31,7 @@
 
 <body>
   <header class="container-fluid fixed-top">
-    <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+    <div class="row pt-lg-2 d-none d-lg-flex bg-blue">
       <div class="col-12 col-lg-5 my-auto py-1 py-lg-0 text-center text-lg-left">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
           <h2 class="logo-font text-shadow text-white my-0"><strong>Outdoor <i
@@ -40,14 +41,14 @@
       <div class="col-12 col-lg-7 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
           <li class="list-inline-item">
-            <a class="text-white nav-link d-block" href="#" id="mobile-search" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+            <a class="text-white nav-link d-block" href="#" id="main-search" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
               <div class="text-center">
                 <div><i class="fas fa-search fa-lg text-green"></i></div>
                 <p class="my-0">Search</p>
               </div>
             </a>
-            <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+            <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="main-search">
               <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-group w-100">
                   <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search">
@@ -72,7 +73,7 @@
                 <p class="my-0 text-white">Manage Site</p>
               </div>
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+            <div class="dropdown-menu border-0" aria-labelledby="admin-options">
 
               <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
               <a href="{% url 'add_post' %}" class="dropdown-item">Add Blog Post</a>
@@ -119,7 +120,7 @@
     </div>
 
     <!-- Mobile Logo Bar -->
-    <div class="row justify-content-center d-lg-none" id="topnav">
+    <div class="row justify-content-center d-lg-none bg-blue">
       <div class="text-center">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
           <h3 class="logo-font text-shadow text-white my-0"><strong>Outdoor <i
@@ -140,9 +141,10 @@
     </div>
     <div class="row text-center text-lightblue bg-green">
       <div class="col">
-          <h5 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!  <i class="fas fa-truck"></i></h5>                
-      </div>            
-  </div>
+        <h5 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}! <i
+            class="fas fa-truck"></i></h5>
+      </div>
+    </div>
   </header>
 
   {% if messages %}
@@ -186,12 +188,13 @@
   {% endblock %}
 
   {% block postloadjs %}
-  <script type="text/javascript">
+  <script>
     $('.toast').toast('show');
   </script>
   {% endblock %}
-</body>
 
-{% include 'includes/footer.html' %}
+  {% include 'includes/footer.html' %}
+
+</body>
 
 </html>

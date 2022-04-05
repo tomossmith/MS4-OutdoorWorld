@@ -18,6 +18,21 @@ p {
 
 <center><img src="static/readme-images/ow-logo.png" alt="Outdoor World Logo" width="50%"></center>
 
+<p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+<p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+            alt="Valid CSS!" />
+    </a>
+</p>
+
 ----
 
     This is the README file for my Code Institute MS4 project site, Outdoor World - The online outdoor equipment store.
@@ -462,7 +477,7 @@ After reading through my code in detail, I noticed I had forgotten to include th
 
 * ### <span id="credits-code"><b>Code</b></span>
 
-
+    * Bulma - /* from Bulma - Maintains FontAwesome icon sizes and centering */
 
 * ### <span id="credits-acknowledgments"><b>Acknowledgements</b></span>
 

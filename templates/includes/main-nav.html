@@ -8,7 +8,7 @@
                       aria-expanded="false">
                         <span class="my-0 text-white logo-font font-weight-bold mr-3 letter-spacing-2">Manage Site</span>
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    <div class="dropdown-menu border-0" aria-labelledby="admin-options">
         
                       <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
                       <a href="{% url 'add_post' %}" class="dropdown-item">Add Blog Post</a>
@@ -18,10 +18,10 @@
                   {% endif %}
             
           <li class="list-inline-item dropdown">
-              <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link d-block d-lg-none" href="#" id="main-user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="my-0 text-white logo-font font-weight-bold mr-3 letter-spacing-2"> My Account</span>
               </a>
-              <div class="dropdown-menu border-0 mb-0" aria-labelledby="user-options">
+              <div class="dropdown-menu border-0 mb-0" aria-labelledby="main-user-options">
                   {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
                           <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>

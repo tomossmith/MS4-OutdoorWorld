@@ -124,14 +124,12 @@ p {
 |A8|Shopper | Filter or See clearly any special offers that the site may have| To make savings on purchases|
 |A9|Site User | Easily locate the login link.| Returning users are able to have access to their accounts without navigating multiple pages.|
 |<strong>B. Registration & User Accounts</strong>|
-|B1|Site User | Register for an account| To store information about purchases, addresses and payment|
+|B1|Site User | Register for an account| To store information about purchases and addresses.|
 |B2|Site User | Login/Logout of their account| Access account information and be able to logout to prevent other users viewing this information.|
 |B3|Site User | See a list of previous orders made| To view previously purchased items|
-|B4|Site User | Personal user account| To store addresses/payment information|
-|B5|Site User | Login using social accounts| Quick and convenient way to login|
+|B4|Site User | Personal user account| To store address information|
 |<strong>C. Purchasing & Checkout</strong>|
 |C1|Shopper | Use a secure payment gateway| To make sure the transactions processed in the store are secure for both user and store.|
-|C2|Shopper | Store payment details to the account| To help speed up the checkout process during the next order.|
 |<strong>D. Store Administration</strong>|
 |D1|Store Administrator | Find administrator tools when logged in| To easily find the administrator tools section|
 |D2|Store Administrator | To create, remove and update and delete products & blog posts.| To manage and update the store|
@@ -382,7 +380,74 @@ p {
 
 * ### <span id="testing-user-stories"><b>User Story Testing</b></span>
 
+<b>A1:  See that they have landed on the correct site they intended to visit. </b>
+        Once a user lands on the homepage, the logo is a strong element of the navigation bar at the top of the page. This remains in this position throughout of the site to inkeep with the store's branding.
 
+<b>A2:  Understand the purpose and reason for the store.</b>
+        The store follows a similar style to many of the e-commerce sites that users have become used to. When landing on the page, a spectacular scenic image fills the page to greet users.
+
+<b>A3:  Be able to view the website correctly on any device.</b>
+        As part of the website testing, I used [Responsive Test Tool](http://responsivetesttool.com/) to make sure the website would display well on a variety of devices.
+
+<b>A4:  Find the business's social links</b>
+        The store's social links are located at the footer of the website. I chose to have the links here as this is a common area that users expect to find any information relating to contacting the business.
+
+<b>A5:  See all the products available</b>
+        The products are displayed in a variety of ways by choosing the appropriate link on the navigation bar.
+        To view all of the products sold in the store, customers can click 'all products'
+
+<b>A6:  Easily navigate categories of different products</b>
+        The products are listed into specific categories and each category is displayed within subcategories on the site's navigation bar.
+
+<b>A7:  See the value of the items in the basket</b>
+        The customer's basket is always visible at the header of the page.
+        Each time a product is added to the basket, the total cost is updated and shown below the image of the basket.
+        If the customer clicks on the basket, a dropdown will expand the display to show a list of all the products that are in the customer's basket.
+
+<b>A8:  Filter or See clearly any special offers that the site may have</b>
+        As part of the navigation bar, there is a specific tab to show any special offers that the store has.
+        Within this dropdown is a breakdown of the different types of offers available.
+
+<b>A9:  Easily locate the login link.</b>
+        As the store login and registration links are important part of the user interaction with the site, I made sure to include the login/registration link within the main navigation bar for the page. 
+        Users can find the link at the top of the page with an icon that corresponds to what the user would expect to relate to logging into their account.
+
+<b>B1:  Register for an account</b>
+        To improve user interaction and to manage repeat purchases, the store has the facility for users to register for an account during the checkout process or by following a link on the homepage.
+        Registering for an account will give the customers some additional features on the site.
+
+<b>B2:  Login/Logout of their account</b>
+        Registered users of the store are able to login and logout of their accounts using the link at the top of every page.
+
+<b>B3:  See a list of previous orders made</b>
+        When users login to the store with their accounts, the links in the navigation menu change to reflect the additional options that users that are logged in have access to.
+        A 'my account' link will display and when clicked, a dropdown will provide the user with options to view their accounts or logout. Clicking 'my account' will navigate the user to a page that has the option to update their default delivery addresses or view a list of any previous orders they have made.
+
+<b>B4:  Personal user account</b>
+        As part of the user account, users are able to store and update their default delivery address.
+        The option to store the address is given to the user during checkout, then they are able to update the address within the my account section.
+
+<b>C1:  Use a secure payment gateway</b>
+        It is critical that customers are confident that their payment information is processed securely and to achieve this I chose to use [Stripe](https://stripe.com/) to process the website payments.
+        Stripe is a secure payment processing platform that is trusted by global banks.
+
+<b>D1:  Find administrator tools when logged in</b>
+        When an administrator signs into the store, the navigation bar at the top of the page will display an additional link to manage the store. This link will only be available to users that are set as superusers.
+
+<b>D2:  To create, remove and update and delete products & blog posts.</b>
+        Store administrators are able to add products and posts by clicking the 'manage site' link that is displayed in the navigation bar when they log in, followed by choosing 'add blog post' or 'add product'
+        To edit or delete products and posts, administrators can click on the icons on a product page or blog post.
+
+<b>D3:  Administrator tools must only be visible to users with administrator privilidges</b>
+        To prevent users not authorised to make changes to the site, there are additional lines of code written at several stages to prevent unauthorised access.
+        In the navigation bar, the following code will make sure that the 'manage site' link is only displayed to superusers:
+
+            {% if request.user.is_superuser %}
+                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+            {% endif %}
+
+        The same IF statements are used on the product and blog pages to display additional icons that allow the user to edit or delete the selected product or blog post.
+        
 <br>
 
 * ### <span id="testing-problems-during-development"><b>Problems During Development</b></span>

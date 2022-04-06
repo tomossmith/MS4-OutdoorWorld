@@ -78,29 +78,22 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """
-    View to Add a product to the store
-    """
+    """ Add a product to the store """
     if not request.user.is_superuser:
-        messages.error(
-            request, "Sorry, only store administrators \
-                are able to access this page!")
+        messages.error(Request, 'Sorry, only store administrators are able to access this page')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(
-                request, 'Product was successfully added to the store!')
+            messages.success(request, 'Product was successfully added to the store!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(
-                request, 'Failed to add product.\
-                     Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-
+        
     template = 'products/add_product.html'
     context = {
         'form': form,

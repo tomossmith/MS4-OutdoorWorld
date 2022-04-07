@@ -12,8 +12,11 @@
   {% endblock %}
 
   {% block extra_meta %}
-  <link rel="icon" href="/media/base-images/favicon.ico" sizes="32x32">
+  <link rel="shortcut icon" href="{% static 'media/favicon.png' %}" type="image/x-icon" />
+  <link rel="icon" href="{% static 'media/favicon.png' %}" type="image/x-icon" />
   {% endblock %}
+
+  /workspace/MS4/media/base-images/favicon.ico
 
   {% block corecss %}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"

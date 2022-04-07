@@ -319,11 +319,9 @@ p {
 
     To test my HTML code, I used the [W3 Validator](https://validator.w3.org/)
 
-    
+    Here is the pass report:
 
-    Here is the pass report for the homepage:
-
-    <img src="readme-images/html_validation_report.png" alt="HTML Validation Report" width="80%">
+    <img src="static/readme-images/testing/testing-html-report.png" alt="HTML Validation Report" width="80%">
 
 <br>
 
@@ -331,6 +329,9 @@ p {
 
     To test my CSS code, I used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
+    Here is the report:
+
+    <img src="static/readme-images/testing/testing-css-report.png" alt="CSS Report" width="80%">
 <br>
 
 * ### <span id="testing-javascript"><b>Javascript</b></span>
@@ -349,6 +350,10 @@ p {
 
     To test my websites performance and compatibility, I used [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
+    Here is a screenshot of the report:
+
+     <img src="static/readme-images/testing/testing-lighthouse-report.png" alt="Lighthouse Report" width="80%">
+
 <br>
 
 * ### <span id="testing-responsive-design"><b>Responsive Design</b></span>
@@ -363,10 +368,10 @@ p {
     Using this tool I was able to test a range of browsers, some of which I wouldn't otherwise have access to.
     Unfortunately the site has a limited free version, and an upgrade to a premium plan would be required to access every device they offer, however I'm confident that the site is very compatible on the most popular browsers.
 
-    <img src="" alt="chrome browser test" width="40%">
-    <img src="" alt="firefox browser test" width="40%">
-    <img src="" alt="internet explorer browser test" width="40%">
-    <img src="" alt="opera browser test" width="40%">
+    <img src="static/readme-images/testing/testing-browser-chrome.png" alt="chrome browser test" width="40%">
+    <img src="static/readme-images/testing/testing-browser-firefox.png" alt="firefox browser test" width="40%">
+    <img src="static/readme-images/testing/testing-browser-iexplorer.png" alt="internet explorer browser test" width="40%">
+    <img src="static/readme-images/testing/testing-browser-opera.png" alt="opera browser test" width="40%">
 
 * ### <span id="testing-links"><b>Link Testing</b></span>
 

@@ -20,7 +20,6 @@
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ product.image }}"
                         alt="{{ product.name }}">
                 </a>
-                {{ MEDIA_URL }}{{ product.image }}
 
                 {% elif product.image_url %}
                 <a href="{% url 'product_detail' product.id %}">

@@ -79,6 +79,7 @@ p {
     - <a href="#testing-responsive-design">Responsive Design</a>
     - <a href="#testing-browser-compatibility">Browser Compatibilty</a>
     - <a href="#testing-links">Link Testing</a>
+    - <a href="#testing-email">Email Testing</a>
     - <a href="#testing-user-stories">User Story Testing</a>
     - <a href="#testing-problems-during-development">Problems During Development</a>
     - <a href="#testing-bugs">Known Bugs</a>
@@ -379,7 +380,19 @@ p {
 
     Here are the results from the [Dead Link Checker](https://www.deadlinkchecker.com/):
 
-    <img src="" alt="Dead Link Reports" width="80%">
+    <img src="static/readme-images/testing/testing-link-test.png" alt="Dead Link Reports" width="80%">
+
+<br>
+
+* ### <span id="testing-email"><b>Email Testing</b></span>
+
+    To test the store's emails, I went through the process of signing up to the account and purchasing an item as a customer would do. Here are the screenshots for the email the store submits to the user:
+
+    Email sent to the customer to verify the registered account email address:
+    <img src="static/readme-images/testing/testing-email-verification.png" alt="verification email" width="80%">
+
+    Email sent to the customer to confirm the order:
+    <img src="static/readme-images/testing/testing-email-order-confirmation.png" alt="order confirmation email" width="80%">
 
 <br>
 

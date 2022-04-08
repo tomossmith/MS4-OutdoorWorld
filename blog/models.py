@@ -29,7 +29,7 @@ class Comment(models.Model):
     email = models.EmailField(max_length=255)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     class Meta:
         """

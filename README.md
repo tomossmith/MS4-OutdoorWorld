@@ -97,7 +97,7 @@ p {
 
 # <span id="project_goals">Project Goals</span>
 
-*   Design, develop and implement a full stack web application using HTML, CSS, JavaScript, Python and Django
+*   Design, develop and implement a full stack web application
 
 *   Identify and apply necessary security features
 
@@ -144,10 +144,10 @@ p {
 
     Here are the key points to consider when choosing the colors:
 
-    * Eye Catching
-    * Comfortable
-    * Color Compatibility
-    * Use colors commonly associated with Adventure/Outdoor Activities
+        - Eye Catching
+        - Comfortable
+        - Color Compatibility
+        - Use colors commonly associated with Adventure/Outdoor Activities
 
     I chose to develop both the logo and the main site theme at the same time to ensure that they could work well together. 
     The colors were going to be an important part of the design in order to create a brand that could be applied throughout the company should it be required in the future.
@@ -158,6 +158,8 @@ p {
     [Adobe Color](https://color.adobe.com/) also helps ensure that the colors are compatible together.
 
     <img src="static/readme-images/ow-colorscheme.png" alt="Color Palette" width="50%">
+
+<br>
 
 * ### <span id="ux-design-typography"><b>Typography</b></span>
 
@@ -237,7 +239,10 @@ p {
 
 * ### <span id="ux-design-amendments"><b>Amendments To Mockup Designs During Development</b></span>
 
-
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 ## <span id="features"><b>Features</b></span>
 
@@ -245,18 +250,17 @@ p {
 
     * #### <b>User Access Structure</b>
 
-    * #### <b>Navigation Menu Based On User Level</b>
+        To help manage the store, there are 2 different roles that can be applied to registered users.
+        A role for a customer that is restricted to only allow basic functions such as purchasing etc.
+        A second role for a store administrator to be able to make product amendments to the store and create blog posts.
 
+    * #### <b>Navigation Menu Based On User Level</b>
 
         <h3>Standard Navigation Menu</h3>
         <img src="static/readme-images/nav-menu/nav-menu-standard.png" alt="Wireframe image for the navigation bars based on user access." width="100%">
 
         <h3>Administrator Navigation Menu</h3>
         <img src="static/readme-images/nav-menu/nav-menu-admin.png" alt="Wireframe image for the navigation bars based on user access." width="100%">
-
-    * #### <b>Dynamically Created Navigation Menu Dropdown</b>
-
-    * #### <b>User Account</b>
 
 * ### <span id="features-future"><b>Possible Future Features</b></span>
 
@@ -281,6 +285,11 @@ p {
         This can improve the shopping experience for others when browsing products and hopefully help promote sales for products receiving good reviews.
 
 ## <span id="database"><b>Database</b></span>
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 <img src="" alt="Wireframe image for the database plans." width="50%">
 
@@ -491,12 +500,22 @@ After reading through my code in detail, I noticed I had forgotten to include th
 
 * ### <span id="testing-bugs"><b>Known Bugs</b></span>
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 <br>
 
 ## <span id="deployment"><b>Deployment</b></span>
 
 * ### <span id="deployment-heroku"><b>Deployment With Heroku</b></span>
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
    
 * ### <span id="deployment-forking"><b>Forking</b></span>
 
@@ -556,7 +575,10 @@ After reading through my code in detail, I noticed I had forgotten to include th
 
 * ### <span id="credits-content"><b>Content</b></span>
 
-
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 * ### <span id="credits-media"><b>Media</b></span>
 

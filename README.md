@@ -1,5 +1,4 @@
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body{
@@ -13,7 +12,6 @@ p {
   line-height: 32px;
   margin-bottom: 20px;
   }
-
 </style>
 
 <center><img src="static/readme-images/ow-logo.png" alt="Outdoor World Logo" width="50%"></center>
@@ -505,13 +503,13 @@ At the time of writing this README, I am not aware of any bugs.
 
 In order to deploy the project, you will need the following:
 
-    * Github Account
-    * Heroku Account
-    * Gitpod or similar IDE
-    * Python3
-    * Stripe Account
-    * Amazon Web Services Account
-    * An Email Account
+    - Github Account
+    - Heroku Account
+    - Gitpod or similar IDE
+    - Python3
+    - Stripe Account
+    - Amazon Web Services Account
+    - An Email Account
    
 * ### <span id="deployment-forking"><b>Forking</b></span>
 

@@ -13,16 +13,16 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
-            contact = form.save(commit=False)
             name = request.POST.get('name')
-            email = request.POST.get('email')
+            from_email = request.POST.get('email')
             subject = request.POST.get('subject')
             message = request.POST.get('message')
 
             send_mail(
+                name,
                 subject,
                 message,
-                settings.EMAIL_HOST_USER, [email], fail_silently=True
+                from_email, settings.EMAIL_HOST_USER
             )
 
             messages.success(

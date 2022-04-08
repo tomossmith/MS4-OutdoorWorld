@@ -135,13 +135,15 @@
                 </table>
             </div>
             {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-theme-color rounded-5 btn-lg">
-                <span class="icon">
-                    <i class="fas fa-shopping-cart"></i>
-                </span>
-                <span class="text-uppercase ">Keep Shopping</span>
-            </a>
+            <div class="text-center">
+                <p class="lead mb-5">Your bag is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-theme-color rounded-5 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </span>
+                    <span class="text-uppercase ">Keep Shopping</span>
+                </a>
+            </div>
             {% endif %}
         </div>
     </div>

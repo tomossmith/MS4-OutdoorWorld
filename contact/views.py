@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.conf import settings
 from .forms import ContactForm
 
@@ -17,11 +18,15 @@ def contact(request):
             subject = request.POST.get('subject')
             message = request.POST.get('message')
 
-            send_mail(
-                subject,
-                message,
-                from_email, ['outdoorworldms4@gmail.com'], fail_silently=True
+            email = EmailMessage(
+                subject=subject,
+                body=message,
+                from_email=from_email,
+                to=['outdoorworldms4@gmail.com'],
+                reply_to=[from_email],
             )
+
+            email.send()
 
             messages.success(
                 request, 'Successfully sent message, a member of \

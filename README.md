@@ -649,8 +649,12 @@ In order to deploy the project, you will need the following:
     *   Homepage Hero - <a href="https://www.pexels.com/photo/man-wearing-white-shirt-brown-shorts-and-green-backpack-standing-on-hill-672358/">Homepage Hero Image</a>
 
 * ### <span id="credits-code"><b>Code</b></span>
+    
+    * Code Institute's Boutique Ado project - I used the project as a base and guideline to create my store.
 
-    * Bulma - /* from Bulma - Maintains FontAwesome icon sizes and centering */
+    * [Django Central](https://djangocentral.com/building-a-blog-application-with-django/) - I used sections of their tutorial to help me understand and build the blog app for the site.
+
+    * [Bulma](https://bulma.io/documentation/elements/icon/) - Well illustrated guidelines to maintain FontAwesome icon sizes and centering
 
 * ### <span id="credits-acknowledgments"><b>Acknowledgements</b></span>
 

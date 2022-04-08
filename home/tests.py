@@ -17,7 +17,7 @@ class WelcomeViewTestCase(TestCase):
         User.objects.create_user(
             self.username, "email@test.com", self.password)
 
-    def test_home_sends_user_to_login(self):
+    def test_homepage_loads_correctly(self):
         """
         Test to run homepage and search for chosen text
         """

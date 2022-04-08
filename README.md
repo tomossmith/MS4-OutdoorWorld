@@ -394,6 +394,11 @@ p {
     Email sent to the customer to confirm the order:
     <img src="static/readme-images/testing/testing-email-order-confirmation.png" alt="order confirmation email" width="80%">
 
+    Email sent to the store administration email address with the customer query.
+    This email is sent using 'emailmessage' instead of 'sendmail' to submit the message with a 'reply-to' address. So when the administration team respond to the message, it automatically replies to the customers address.
+
+    <img src="static/readme-images/testing/testing-email-contact.png" alt="contact message email" width="80%">
+
 <br>
 
 * ### <span id="testing-user-stories"><b>User Story Testing</b></span>

@@ -18,21 +18,6 @@ p {
 
 <center><img src="static/readme-images/ow-logo.png" alt="Outdoor World Logo" width="50%"></center>
 
-<p>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="https://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
-</p>
-<p>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-            alt="Valid CSS!" />
-    </a>
-</p>
-
 ----
 
     This is the README file for my Code Institute MS4 project site, Outdoor World - The online outdoor equipment store.
@@ -87,6 +72,7 @@ p {
     - <a href="#deployment-heroku">Deployment With Heroku</a>
     - <a href="#deployment-forking">Forking</a>
     - <a href="#deployment-cloning">Cloning Project</a>
+    - <a href="#database-setup">Database Setup</a>
 - <a href="#credits">Credits</a>
     - <a href="#credits-content">Content</a>
     - <a href="#credits-media">Media</a>
@@ -239,10 +225,9 @@ p {
 
 * ### <span id="ux-design-amendments"><b>Amendments To Mockup Designs During Development</b></span>
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    As the design was based on a common e-commerce template, there weren't many amendements during the development.
+    Most changes that were made during the development were to margins and paddings to keep a nice clean layout for the store.
+    Any future features that i'd like to implement into the store could change the original structure.
 
 ## <span id="features"><b>Features</b></span>
 
@@ -284,14 +269,9 @@ p {
         Customers could leave reviews for products they have purchased in the store.
         This can improve the shopping experience for others when browsing products and hopefully help promote sales for products receiving good reviews.
 
-## <span id="database"><b>Database</b></span>
+## <span id="database"><b>Database Diagram</b></span>
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-<img src="" alt="Wireframe image for the database plans." width="50%">
+<center><img src="static/readme-images/db-diagram.png" alt="Database Diagram" width="80%"></center>
 
 ## <span id="key-components"><b>Key Components</b></span>
 
@@ -342,6 +322,23 @@ p {
     Here is the report:
 
     <img src="static/readme-images/testing/testing-css-report.png" alt="CSS Report" width="80%">
+
+    <center>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss"
+                    alt="Valid CSS!" />
+            </a>
+        </p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="Valid CSS!" />
+            </a>
+        </p>
+    </center>
 <br>
 
 * ### <span id="testing-javascript"><b>Javascript</b></span>
@@ -500,22 +497,21 @@ After reading through my code in detail, I noticed I had forgotten to include th
 
 * ### <span id="testing-bugs"><b>Known Bugs</b></span>
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
+At the time of writing this README, I am not aware of any bugs.
 
 <br>
 
 ## <span id="deployment"><b>Deployment</b></span>
 
-* ### <span id="deployment-heroku"><b>Deployment With Heroku</b></span>
+In order to deploy the project, you will need the following:
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    * Github Account
+    * Heroku Account
+    * Gitpod or similar IDE
+    * Python3
+    * Stripe Account
+    * Amazon Web Services Account
+    * An Email Account
    
 * ### <span id="deployment-forking"><b>Forking</b></span>
 
@@ -524,8 +520,6 @@ After reading through my code in detail, I noticed I had forgotten to include th
     - On [Github](https://www.github.com), navigate to the repository you wish to fork.
 
     - In the top right corner click <b>Fork</b>
-
-        <img src="" alt="image showing the location of the fork button on Github" width="80%">
 
 * ### <span id="deployment-cloning"><b>Cloning Project</b></span>
 
@@ -537,53 +531,124 @@ After reading through my code in detail, I noticed I had forgotten to include th
     - On the right hand side of the page you will see a green button labelled 'Code'. Click This
     - A menu will appear with different ways of cloning the repository.
 
-        <img src="" alt="Github website showing where to find the 'code' button." width="80%">
-
     <b>To Clone the repository By HTTPS</b>
     - From the previous step, click on the clipboard button (located after the address) under the 'HTTPS' tab.
     - Open terminal and change directory to the area you wish to load the repository into.
     - Once you're in the required directory, enter the command 'git clone' and paste the URL that you added to the clipboard in the previous step. - Press Enter
-
-        <img src="" alt="Github website showing where to click to copy the address to the clipboard" width="80%">
 
     <b>To Clone the repository to GitHub Desktop</b>
     - Follow steps 1,2 and 3 above.
     - Click 'Open with GitHub Desktop
     - Follow the prompts within the GitHub Desktop popups to complete the clone.
 
-        <img src="" alt="Github website showing where to click to open with Github Desktop" width="80%">
-
     <b>How to download a Zip file of the repository</b>
     - Follow steps 1,2 and 3 above.
     - Select the option 'Download Zip'
 
-        <img src="" alt="Github website showing the Download Zip link." width="80%">
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     Once you have cloned the repository, you will need to carry out these additional steps:
-        a. Create an env.py file containing your own variables
-        b. Create a MongoDB database and replicate the databases from <a href="#database">here</a>.
-        c. Install all the packages listed within the requirements.txt file using the following command within your environment:
 
-            pip install -r requirements.txt
+    - Install the requirements into your workspace, type the following in the command interface:
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        'pip3 install -r requirements.txt'
+
+    <b>Setup the enviroment variables:</b>
+        * Create a .gitignore file in the root directory of the project.
+        * Create an env.py file and list the following variables in the file:
+
+            import os
+            os.environ("DATABASE_URL": "<your database URL>")
+            os.environ("EMAIL_HOST_PASS": "<your individual key>")
+            os.environ("EMAIL_HOST_USER": "<your individual email address>")
+            os.environ("SECRET_KEY": "<your individual secret key>")
+            os.environ("STRIPE_PUBLIC_KEY": "<your individual stripe public key>")
+            os.environ("STRIPE_SECRET_KEY": "<your individual stripe secret key>")
+            os.environ("STRIPE_WH_SECRET": "<your individual stripe webhook secret key>")
+
+        <b>IMPORTANT - remember to add your env.py file to .gitignore</b>
+
+    <b>Create the database:</b>
+        * Run the command 'python3 manage.py makemigrations'
+        * Run the command 'python3 manage.py migrate'
+    
+    <b>Create a superuser:</b>
+        * Run the command 'python3 manage.py createsuperuser' and follow the instructions.
+
+    <b>Test the app</b>
+        * Run the command 'python3 manage.py runserver'
+
+* ### <span id="deployment-heroku"><b>Deployment With Heroku</b></span>
+
+    <b>To deploy to Heroku, you will need to:</b>
+
+    - Navigate to the Heroku website and login or signup for an account.
+        - Click 'New' to create a new app and complete the location and application information.
+
+    - Once completed, enter the following in your CLI:
+        - 'pip3 install dj_database_url'
+        - 'pip3 install psycopg2-binary'
+        - 'pip3 freeze > requirements.txt'
+        - 'heroku login -i' and follow the instructions to login
+        - Migrate the database to postgres with the command:
+            'heroku run python manage.py migrate'
+        - Install gunicorn with the command 'pip3 install gunicorn'
+        - Create a new file called Procfile and include the following in the document:
+
+        web: gunicorn <your-application-name>.wsgi:application
+
+        - In your settings.py file, set the allowed hosts by including:
+
+        ALLOWED_HOSTS = ['<application-name>.herokuapp.com', 'localhost']
+
+    - Once these steps are complete, return to HEROKU and carry out the following:
+        - Select the 'Deploy' tab and choose 'Github' under the deployment method.
+        - Connect to your Github and enter the repository details.
+        - In the 'settings' tab, find 'Convig Vars' and select 'Reveal Config Vars' and enter the following config variables with your own values:
+
+        |KEY|VALUE|
+        |DATABASE_URL|<your postgres database url>|
+        |EMAIL_HOST_PASS|<your email password>|
+        |EMAIL_HOST_USER|<your email account address>|
+        |SECRET_KEY|<your secret key>|
+        |STRIPE_PUBLIC_KEY|<your stripe public key>|
+        |STRIPE_SECRET_KEY|<your stripe secret key>|
+        |STRIPE_WH_SECRET|<your stripe webhook secret key>|
+        |AWS_ACCESS_KEY_ID|<your aws access key>|
+        |AWS_SECRET_ACCESS_KEY|<your aws secret access key>|
+        |USE_AWS|True|
+
+* ### <span id="database-setup"><b>Database Setup</b></span>
+
+    -   To setup the store database, you will need to do the following:
+        -   In your settings.py file under the default database section, include the following:
+
+            DATABASES = {'default'dj_database_url.parse(<Enter the DATABASE_URL>)}
+        
+        - Create the databases by migrating the models:
+            'python3 manage.py makemigrations'
+            'python3 managepy migrate'
+        - Load the categories and products in order due to the dependencies:
+            'python3 manage.py loaddata categories'
+            'python3 manage.py loaddata products'
+        - Create a superuser:
+            'python3 manage.py createsuperuser'
+
+        - Once you have carried aout the above settings, remove the DATABASE_URL from the settings.py file and set the previous default database settings.
+
+        - Push your code to Github
 
 ## <span id="credits"><b>Credits</b></span>
 
 * ### <span id="credits-content"><b>Content</b></span>
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    * Item descriptions were taken directly from the manufacturers sites..
 
 * ### <span id="credits-media"><b>Media</b></span>
 
+    *   Product Images were all taken from the manufacturers websites.
+
     *   No Image Icon - <a href="https://www.freeiconspng.com/img/23494">No Save Icon Format</a>
 
+    *   Homepage Hero - <a href="https://www.pexels.com/photo/man-wearing-white-shirt-brown-shorts-and-green-backpack-standing-on-hill-672358/">Homepage Hero Image</a>
 
 * ### <span id="credits-code"><b>Code</b></span>
 

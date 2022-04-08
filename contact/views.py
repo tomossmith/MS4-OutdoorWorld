@@ -13,8 +13,6 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
-            contact = form.save(commit=False)
-            name = request.POST.get('name')
             from_email = request.POST.get('email')
             subject = request.POST.get('subject')
             message = request.POST.get('message')
@@ -22,7 +20,7 @@ def contact(request):
             send_mail(
                 subject,
                 message,
-                from_email, settings.EMAIL_HOST_USER, fail_silently=True
+                from_email, ['outdoorworldms4@gmail.com'], fail_silently=True
             )
 
             messages.success(

@@ -28,7 +28,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ALLOWED_HOSTS = ['ts-outdoorworld.herokuapp.com', 'localhost']
 
 # Add Render.com URL to allowed hosts
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('https://ms4-outdoorworld.onrender.com/')
 if RENDER_EXTERNAL_HOSTNAME:
   ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 

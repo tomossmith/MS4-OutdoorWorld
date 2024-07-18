@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'FALSE'
 
-ALLOWED_HOSTS = ['https://ms4-outdoorworld.onrender.com']
+ALLOWED_HOSTS = ['ms4-outdoorworld.onrender.com']
 
 # Application definition
 

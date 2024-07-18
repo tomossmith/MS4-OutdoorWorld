@@ -67,7 +67,7 @@ p {
     - <a href="#testing-problems-during-development">Problems During Development</a>
     - <a href="#testing-bugs">Known Bugs</a>
 - <a href="#deployment">Deployment</a>
-    - <a href="#deployment-heroku">Deployment With Heroku</a>
+    - <a href="#deployment-heroku">Deployment With </a>
     - <a href="#deployment-forking">Forking</a>
     - <a href="#deployment-cloning">Cloning Project</a>
     - <a href="#database-setup">Database Setup</a>

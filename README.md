@@ -29,7 +29,7 @@ p {
 
 <center><img src="static/readme-images/ow-mockups.png" alt="Website Mockup" width="80%">
 
-[CLICK HERE TO VISIT THE LIVE SITE](https://ts-outdoorworld.herokuapp.com/) </center>
+[CLICK HERE TO VISIT THE LIVE SITE](https://ms4-outdoorworld-08yq.onrender.com/) </center>
 
 ----
 <br>
@@ -296,7 +296,8 @@ p {
     * #### [TinyPNG](https://tinypng.com/) - Used to reduce image file sizes
     * #### [Lighthouse](https://developers.google.com/web/tools/lighthouse) - Performance and Accessibility Reporting
     * #### [Balsamiq](https://balsamiq.com/) - Used to build the wireframes
-    * #### [Heroku](https://www.heroku.com/) - Live site deployment
+    * #### [Heroku](https://www.heroku.com/) - Previous Live site deployment
+    * #### [Render](https://www.render.com/) - Live site deployment
     * #### [Am I Responsive](http://ami.responsivedesign.is/) - To check responsive design
     * #### [W3 Validator](https://validator.w3.org/) - To check my HTML code
 

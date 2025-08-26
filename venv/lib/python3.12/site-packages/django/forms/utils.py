@@ -49,15 +49,36 @@ class RenderableMixin:
         )
 
     def render(self, template_name=None, context=None, renderer=None):
-        return mark_safe(
-            (renderer or self.renderer).render(
-                template_name or self.template_name,
-                context or self.get_context(),
-            )
-        )
+        renderer = renderer or self.renderer
+        template = template_name or self.template_name
+        context = context or self.get_context()
+        return mark_safe(renderer.render(template, context))
 
     __str__ = render
     __html__ = render
+
+
+class RenderableFieldMixin(RenderableMixin):
+    def as_field_group(self):
+        return self.render()
+
+    def as_hidden(self):
+        raise NotImplementedError(
+            "Subclasses of RenderableFieldMixin must provide an as_hidden() method."
+        )
+
+    def as_widget(self):
+        raise NotImplementedError(
+            "Subclasses of RenderableFieldMixin must provide an as_widget() method."
+        )
+
+    def __str__(self):
+        """Render this field as an HTML widget."""
+        if self.field.show_hidden_initial:
+            return self.as_widget() + self.as_hidden(only_initial=True)
+        return self.as_widget()
+
+    __html__ = __str__
 
 
 class RenderableFormMixin(RenderableMixin):
@@ -72,6 +93,10 @@ class RenderableFormMixin(RenderableMixin):
     def as_ul(self):
         """Render as <li> elements excluding the surrounding <ul> tag."""
         return self.render(self.template_name_ul)
+
+    def as_div(self):
+        """Render as <div> elements."""
+        return self.render(self.template_name_div)
 
 
 class RenderableErrorMixin(RenderableMixin):
@@ -122,7 +147,7 @@ class ErrorList(UserList, list, RenderableErrorMixin):
     template_name_text = "django/forms/errors/list/text.txt"
     template_name_ul = "django/forms/errors/list/ul.html"
 
-    def __init__(self, initlist=None, error_class=None, renderer=None):
+    def __init__(self, initlist=None, error_class=None, renderer=None, field_id=None):
         super().__init__(initlist)
 
         if error_class is None:
@@ -130,6 +155,7 @@ class ErrorList(UserList, list, RenderableErrorMixin):
         else:
             self.error_class = "errorlist {}".format(error_class)
         self.renderer = renderer or get_default_renderer()
+        self.field_id = field_id
 
     def as_data(self):
         return ValidationError(self.data).error_list
@@ -137,6 +163,7 @@ class ErrorList(UserList, list, RenderableErrorMixin):
     def copy(self):
         copy = super().copy()
         copy.error_class = self.error_class
+        copy.renderer = self.renderer
         return copy
 
     def get_json_data(self, escape_html=False):
@@ -193,9 +220,7 @@ def from_current_timezone(value):
     if settings.USE_TZ and value is not None and timezone.is_naive(value):
         current_timezone = timezone.get_current_timezone()
         try:
-            if not timezone._is_pytz_zone(
-                current_timezone
-            ) and timezone._datetime_ambiguous_or_imaginary(value, current_timezone):
+            if timezone._datetime_ambiguous_or_imaginary(value, current_timezone):
                 raise ValueError("Ambiguous or non-existent time.")
             return timezone.make_aware(value, current_timezone)
         except Exception as exc:

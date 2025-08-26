@@ -8,4 +8,11 @@ node_modules/
 .github/
 cloudinary_python.txt
 *.sqlite3
+*.pycvenv/
+venv/
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.db
+

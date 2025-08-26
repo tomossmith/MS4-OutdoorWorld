@@ -30,4 +30,4 @@ stripe = "==2.64.0"
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.12"

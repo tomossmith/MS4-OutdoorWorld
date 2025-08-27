@@ -38,3 +38,4 @@ tomlkit==0.13.3
 typing_extensions==4.15.0
 urllib3==1.26.20
 wheel==0.45.1
+python==3.12

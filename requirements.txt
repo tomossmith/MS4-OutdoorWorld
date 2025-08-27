@@ -18,7 +18,7 @@ isort==6.0.1
 jmespath==0.10.0
 mccabe==0.7.0
 oauthlib==3.1.1
-Pillow==9.0.0
+Pillow>=10.3.0
 platformdirs==4.4.0
 psycopg2-binary==2.9.3
 pylint==3.3.8

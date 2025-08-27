@@ -174,7 +174,7 @@
                 "sha256:4496eb4f65071578b703fdc6e6f29302553c7440e3f77baf4cefa4a4e091fc3d"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==4.0.10"
+            "version": "==4.1.10"
         },
         "django-countries": {
             "hashes": [
@@ -290,7 +290,7 @@
             ],
             "index": "pypi",
             "markers": "python_version >= '3.7'",
-            "version": "==9.0.0"
+            "version": "==10.3.0"
         },
         "platformdirs": {
             "hashes": [

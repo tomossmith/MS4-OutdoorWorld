@@ -37,6 +37,6 @@ sqlparse==0.5.3
 stripe==12.4.0
 tomlkit==0.13.3
 typing_extensions==4.15.0
-urllib3==1.26.20
+urllib3>=2.5.0
 wheel==0.45.1
 
